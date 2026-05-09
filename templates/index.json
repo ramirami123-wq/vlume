@@ -15,6 +15,7 @@
         "slide-2": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/1777919924_3_1.png",
             "image_position": "center center",
             "text_box_position": "bottom-right",
             "subheading": "",
@@ -57,79 +58,32 @@
         "padding_bottom": 36
       }
     },
-    "featured_product_RCYCaB": {
-      "type": "featured-product",
-      "blocks": {
-        "title_7PbUaC": {
-          "type": "title",
-          "settings": {
-            "title_size": "h2",
-            "title_tag": "h2",
-            "show_price": false,
-            "price_size": "medium"
-          }
-        },
-        "rating_AN8Hkq": {
-          "type": "rating",
-          "settings": {}
-        },
-        "price_7c3cKU": {
-          "type": "price",
-          "settings": {
-            "price_size": "medium",
-            "show_badges": true,
-            "sale_badge_basis": "percentage"
-          }
-        },
-        "custom_liquid_9wDUPc": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "<div style=\"padding: 12px; text-align: left; background-color: #f9f9f9; font-size: 15px; border-radius: 12px; margin-top: 10px; margin-bottom: 10px; line-height: 1.6;\">\n\n<span style=\"font-weight: bold;\">✨ High-Frequency Sonic Power</span> – Delivers up to 31,000 vibrations per minute to effectively remove plaque and tartar.<br><br>\n\n<span style=\"font-weight: bold;\">🔋 Cordless & Rechargeable</span> – Convenient USB charging for easy, portable use anytime, anywhere.<br><br>\n\n<span style=\"font-weight: bold;\">🦷 Multiple Cleaning Modes</span> – Adjustable settings designed for sensitive gums and deep cleaning needs.<br><br>\n\n<span style=\"font-weight: bold;\">💧 Waterproof & Easy to Clean</span> – Safe for use in the bathroom with a sleek, hygienic design.\n\n</div>"
-          }
-        },
-        "variant_picker_txHV9a": {
-          "type": "variant_picker",
-          "settings": {
-            "show_variant_labels": true,
-            "picker_type": "button",
-            "enable_color_swatches": true,
-            "swatches_source": "file",
-            "swatch_type": "round",
-            "enable_swatch_cross": true,
-            "enable_swatch_unavailable_click": false,
-            "size_chart": ""
-          }
-        },
-        "buy_buttons_jtWcw8": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_quantity_selector": true,
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": false
-          }
-        }
-      },
-      "block_order": [
-        "title_7PbUaC",
-        "rating_AN8Hkq",
-        "price_7c3cKU",
-        "custom_liquid_9wDUPc",
-        "variant_picker_txHV9a",
-        "buy_buttons_jtWcw8"
-      ],
-      "name": "t:sections.featured-product.presets.name",
+    "featured_collection_h637tt": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "product": "electric-teeth-cleaner-2-in-1",
-        "layout": "media_first",
-        "full_width": false,
+        "collection": "frontpage",
+        "products_to_show": 4,
+        "horizontal_scroll": false,
+        "show_view_all": true,
         "show_divider": false,
-        "show_featured_media": false,
-        "hide_variants": false,
-        "enable_image_zoom": false,
-        "enable_video_looping": false,
-        "image_ratio": "adapt_first",
+        "heading": "Featured collection",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "heading_tag": "h2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
         "image_position": "center center",
-        "enable_layered_images": false,
+        "enable_image_fill": true,
+        "show_secondary_image": false,
+        "secondary_image_max": 1,
+        "show_vendor": false,
+        "show_rating": false,
+        "show_quick_buy": true,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": true,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -143,7 +97,7 @@
             "icon": "none",
             "icon_size": "medium",
             "custom_icon": "",
-            "text": "Youngevity",
+            "text": "VLUME",
             "text_size": 20,
             "link": ""
           }
@@ -172,7 +126,7 @@
         "heading_NEyD4Q": {
           "type": "heading",
           "settings": {
-            "heading": "AT Youngevity",
+            "heading": "At Vlume",
             "heading_size": "h1",
             "heading_tag": "h2"
           }
@@ -180,7 +134,7 @@
         "text_z3jQfd": {
           "type": "text",
           "settings": {
-            "text": "<p>we believe that confidence begins with a healthy smile. Our mission is to create innovative, easy-to-use oral care solutions that help you maintain professional-level hygiene from the comfort of your home.</p><p>We combine modern technology with thoughtful design to deliver products that are effective, safe, and convenient for everyday use. From powerful sonic cleaning to user-friendly features, every Youngevity product is crafted to support your journey toward better oral health.</p>",
+            "text": "<p><br/>we believe beauty is more than appearance; it’s a feeling of self-love, confidence, and empowerment. Our mission is to provide high-quality beauty products that help you shine every day. From skincare essentials to beauty must-haves, we carefully select products designed to enhance your natural beauty while delivering comfort, style, and results.<br/><br/></p>",
             "text_size": "typeset2",
             "secondary_color": false,
             "highlight_phrases": "",
@@ -219,7 +173,7 @@
             "icon": "none",
             "icon_size": "medium",
             "custom_icon": "",
-            "text": "WELCOME TO YOUNGEVITY",
+            "text": "DELIVERY ALL OVER LEBANON",
             "text_size": 20,
             "link": ""
           }
@@ -248,29 +202,45 @@
         "question_yNkDQY": {
           "type": "question",
           "settings": {
-            "title": "Is the Youngevity Sonic Dental Scaler safe to use at home?",
-            "text": "<p>Yes! The device is designed for safe at-home use. It features gentle yet powerful sonic vibrations and multiple modes to suit different sensitivity levels.</p>"
+            "title": "How long does delivery take?",
+            "text": "<p>Delivery usually takes <strong>5–7 business days</strong> depending on your location.</p><h3></h3>"
           }
         },
         "question_YmRBPG": {
           "type": "question",
           "settings": {
-            "title": "Does it hurt to use?",
-            "text": "<p>When used correctly, it should not hurt. If you have sensitive gums, start with the lowest setting and gently guide the tip along your teeth.<br/></p>"
+            "title": "What payment methods do you accept?",
+            "text": "<p>We offer <strong>Cash on Delivery (COD)</strong> for your convenience and safety.</p><h3></h3>"
           }
         },
         "question_9WMfD8": {
           "type": "question",
           "settings": {
-            "title": "Is it waterproof?",
-            "text": "<p>Yes, the Youngevity Sonic Dental Scaler is waterproof, making it safe for use in the bathroom and easy to clean after each use.<br/></p>"
+            "title": "Are your products safe?",
+            "text": "<p>Yes! All our products are carefully selected to ensure they are <strong>safe, high-quality, and reliable</strong> for everyday use.</p><h3></h3>"
+          }
+        },
+        "question_DTN4JM": {
+          "type": "question",
+          "settings": {
+            "title": "How can I contact you?",
+            "text": "<p>You can easily reach us through <strong>WhatsApp</strong> for orders, questions, and customer support.</p><h3></h3>"
+          }
+        },
+        "question_BcbDMp": {
+          "type": "question",
+          "settings": {
+            "title": "What makes Vlume special?",
+            "text": "<p>At Vlume, we focus on providing beauty products that combine <strong>quality, affordability, and confidence</strong> for every customer.</p>"
           }
         }
       },
       "block_order": [
         "question_yNkDQY",
         "question_YmRBPG",
-        "question_9WMfD8"
+        "question_9WMfD8",
+        "question_DTN4JM",
+        "question_BcbDMp"
       ],
       "name": "t:sections.faq.presets.name",
       "settings": {
@@ -340,7 +310,7 @@
   },
   "order": [
     "slideshow",
-    "featured_product_RCYCaB",
+    "featured_collection_h637tt",
     "scrolling_promotion_gqQrxK",
     "rich_text_iPTEGL",
     "scrolling_promotion_yJEgih",
