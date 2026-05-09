@@ -22,7 +22,7 @@
         "custom_liquid_Q4eMAn": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<style>\n  .star-review-wrapper {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-shrink: 0;\n  }\n\n  .star-icons svg {\n    width: 20px;\n    height: 20px;\n    fill: #CB572A; /* Your deep red color */\n  }\n\n  .review-text {\n    font-size: 16px;\n    font-weight: 500;\n    color: #333;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 480px) {\n    .star-review-wrapper {\n      flex-direction: row;\n      justify-content: center;\n    }\n\n    .review-text {\n      font-size: 15px;\n    }\n  }\n</style>\n\n<div class=\"star-review-wrapper\">\n  <div class=\"star-icons\">\n    <!-- 5 Rounded Stars -->\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n  </div>\n  <div class=\"review-text\">\n    <strong>5</strong> by <strong>194+</strong> Customers\n  </div>\n</div>"
+            "custom_liquid": "<style>\n  .star-review-wrapper {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-shrink: 0;\n  }\n\n  .star-icons svg {\n    width: 20px;\n    height: 20px;\n    fill: BLACK; /* Your deep red color */\n  }\n\n  .review-text {\n    font-size: 16px;\n    font-weight: 500;\n    color: #333;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 480px) {\n    .star-review-wrapper {\n      flex-direction: row;\n      justify-content: center;\n    }\n\n    .review-text {\n      font-size: 15px;\n    }\n  }\n</style>\n\n<div class=\"star-review-wrapper\">\n  <div class=\"star-icons\">\n    <!-- 5 Rounded Stars -->\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n  </div>\n  <div class=\"review-text\">\n    <strong>5</strong> by <strong>194+</strong> Customers\n  </div>\n</div>"
           }
         },
         "title": {
@@ -48,13 +48,13 @@
         "custom_liquid_TJV3Ri": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<section class=\"sale-timer\" aria-label=\"Sale countdown timer\">\n  <style>\n    .sale-timer{\n      width:100%;\n      padding:22px 12px;\n      display:flex;\n      justify-content:center;\n      background:##CB572A;\n      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;\n    }\n    .sale-timer__wrap{\n      text-align:center;\n    }\n    .sale-timer__label{\n      font-size:24px;\n      font-weight:500;\n      color:#111;\n      margin:0 0 14px 0;\n      line-height:1.1;\n    }\n\n    .sale-timer__row{\n      display:flex;\n      align-items:center;\n      justify-content:center;\n      gap:10px;\n    }\n\n    .sale-timer__box{\n      width:88px;\n      height:68px;\n      background:#CB572A;\n      color:#fff;\n      border-radius:6px;\n      display:flex;\n      align-items:center;\n      justify-content:center;\n      font-size:34px;\n      font-weight:700;\n      letter-spacing:1px;\n      font-variant-numeric: tabular-nums;\n    }\n\n    .sale-timer__colon{\n      font-size:32px;\n      font-weight:700;\n      color:#ff2a2a;\n      line-height:1;\n      transform: translateY(-1px);\n      user-select:none;\n    }\n\n    @media (max-width:420px){\n      .sale-timer__label{ font-size:20px; }\n      .sale-timer__box{ width:72px; height:58px; font-size:30px; }\n      .sale-timer__colon{ font-size:28px; }\n      .sale-timer__row{ gap:8px; }\n    }\n  </style>\n\n  <div class=\"sale-timer__wrap\">\n    <div class=\"sale-timer__label\">Hurry! Sale ends in</div>\n\n    <div class=\"sale-timer__row\" role=\"timer\" aria-live=\"polite\">\n      <div class=\"sale-timer__box\" id=\"st-hours\">00</div>\n      <div class=\"sale-timer__colon\">:</div>\n      <div class=\"sale-timer__box\" id=\"st-mins\">00</div>\n      <div class=\"sale-timer__colon\">:</div>\n      <div class=\"sale-timer__box\" id=\"st-secs\">00</div>\n    </div>\n  </div>\n\n  <script>\n    (function () {\n      const durationHours = 12; // change if needed\n      const endAt = Date.now() + durationHours * 60 * 60 * 1000;\n\n      const h = document.getElementById(\"st-hours\");\n      const m = document.getElementById(\"st-mins\");\n      const s = document.getElementById(\"st-secs\");\n\n      const pad = n => String(n).padStart(2, \"0\");\n\n      function update(){\n        let diff = endAt - Date.now();\n        if(diff < 0) diff = 0;\n\n        const total = Math.floor(diff / 1000);\n        h.textContent = pad(Math.floor(total / 3600));\n        m.textContent = pad(Math.floor((total % 3600) / 60));\n        s.textContent = pad(total % 60);\n\n        if(diff === 0) clearInterval(timer);\n      }\n\n      update();\n      const timer = setInterval(update, 1000);\n    })();\n  </script>\n</section>"
+            "custom_liquid": "<section class=\"sale-timer\" aria-label=\"Sale countdown timer\">\n  <style>\n    .sale-timer{\n      width:100%;\n      padding:22px 12px;\n      display:flex;\n      justify-content:center;\n      background:##CB572A;\n      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;\n    }\n    .sale-timer__wrap{\n      text-align:center;\n    }\n    .sale-timer__label{\n      font-size:24px;\n      font-weight:500;\n      color:#111;\n      margin:0 0 14px 0;\n      line-height:1.1;\n    }\n\n    .sale-timer__row{\n      display:flex;\n      align-items:center;\n      justify-content:center;\n      gap:10px;\n    }\n\n    .sale-timer__box{\n      width:88px;\n      height:68px;\n      background:BLACK;\n      color:#fff;\n      border-radius:6px;\n      display:flex;\n      align-items:center;\n      justify-content:center;\n      font-size:34px;\n      font-weight:700;\n      letter-spacing:1px;\n      font-variant-numeric: tabular-nums;\n    }\n\n    .sale-timer__colon{\n      font-size:32px;\n      font-weight:700;\n      color:#ff2a2a;\n      line-height:1;\n      transform: translateY(-1px);\n      user-select:none;\n    }\n\n    @media (max-width:420px){\n      .sale-timer__label{ font-size:20px; }\n      .sale-timer__box{ width:72px; height:58px; font-size:30px; }\n      .sale-timer__colon{ font-size:28px; }\n      .sale-timer__row{ gap:8px; }\n    }\n  </style>\n\n  <div class=\"sale-timer__wrap\">\n    <div class=\"sale-timer__label\">Hurry! Sale ends in</div>\n\n    <div class=\"sale-timer__row\" role=\"timer\" aria-live=\"polite\">\n      <div class=\"sale-timer__box\" id=\"st-hours\">00</div>\n      <div class=\"sale-timer__colon\">:</div>\n      <div class=\"sale-timer__box\" id=\"st-mins\">00</div>\n      <div class=\"sale-timer__colon\">:</div>\n      <div class=\"sale-timer__box\" id=\"st-secs\">00</div>\n    </div>\n  </div>\n\n  <script>\n    (function () {\n      const durationHours = 12; // change if needed\n      const endAt = Date.now() + durationHours * 60 * 60 * 1000;\n\n      const h = document.getElementById(\"st-hours\");\n      const m = document.getElementById(\"st-mins\");\n      const s = document.getElementById(\"st-secs\");\n\n      const pad = n => String(n).padStart(2, \"0\");\n\n      function update(){\n        let diff = endAt - Date.now();\n        if(diff < 0) diff = 0;\n\n        const total = Math.floor(diff / 1000);\n        h.textContent = pad(Math.floor(total / 3600));\n        m.textContent = pad(Math.floor((total % 3600) / 60));\n        s.textContent = pad(total % 60);\n\n        if(diff === 0) clearInterval(timer);\n      }\n\n      update();\n      const timer = setInterval(update, 1000);\n    })();\n  </script>\n</section>"
           }
         },
         "custom_liquid_H9DXEK": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<div style=\"padding: 12px; text-align: left; background-color: #f9f9f9; font-size: 15px; border-radius: 12px; margin-top: 10px; margin-bottom: 10px; line-height: 1.6;\">\n\n<span style=\"font-weight: bold;\">✨ Cordless & Rechargeable</span> – Style your hair anywhere without needing an outlet.<br><br>\n\n<span style=\"font-weight: bold;\">🔥 Fast, Even Heating</span> –  Advanced ceramic technology smooths hair quickly with less frizz.<br><br>\n\n<span style=\"font-weight: bold;\">🌡️ Adjustable Heat Settings</span> – Suitable for fine, thick, curly, or treated hair.<br><br>\n\n<span style=\"font-weight: bold;\">💫 Smooth, Tangle-Free Results</span> –  Glides gently through hair for a sleek, shiny finish.\n\n</div>"
+            "custom_liquid": "<div style=\"padding: 12px; text-align: left; background-color: #f9f9f9; font-size: 15px; border-radius: 12px; margin-top: 10px; margin-bottom: 10px; line-height: 1.6;\">\n\n<span style=\"font-weight: bold;\">🌸 Quick & Easy Hair Removal</span> – Removes unwanted hair smoothly in just minutes.<br><br>\n\n<span style=\"font-weight: bold;\">✨ Soft & Smooth Skin</span> – Leaves your skin feeling clean, fresh, and silky after use.<br><br>\n\n<span style=\"font-weight: bold;\">🧴 Gentle Foam Formula</span> – Designed for underarms, hands, legs, and body use with a skin-friendly formula.<br><br>\n\n<span style=\"font-weight: bold;\">💖 Easy Spray Application</span> – Convenient spray foam design for fast and mess-free hair removal at home.\n\n</div>"
           }
         },
         "variant_picker": {
@@ -174,6 +174,271 @@
         "padding_bottom": 36
       }
     },
+    "scrolling_promotion_4ay3ka": {
+      "type": "scrolling-promotion",
+      "blocks": {
+        "announcement_cFWJEW": {
+          "type": "announcement",
+          "settings": {
+            "icon": "none",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "text": "Welcome to our store",
+            "text_size": 20,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_cFWJEW"
+      ],
+      "name": "t:sections.scrolling-promotion.presets.name",
+      "settings": {
+        "direction": "left",
+        "speed": 1.6,
+        "show_divider": false,
+        "use_custom_colors": true,
+        "colors_icon": "#ffffff",
+        "colors_text": "#ffffff",
+        "colors_background": "#212326",
+        "gradient_background": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_pdWqXR": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_6wEtnE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1",
+            "heading_tag": "h2"
+          }
+        },
+        "text_43eQhA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_size": "typeset2",
+            "secondary_color": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_6wEtnE",
+        "text_43eQhA"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image_position": "center center",
+        "layout": "image_first",
+        "text_box_position": "middle",
+        "text_alignment": "left",
+        "image_ratio": "650px",
+        "enlarge_content": false,
+        "full_width": false,
+        "show_divider": false,
+        "image_behavior": "none",
+        "mobile_layout": "image_first",
+        "mobile_text_alignment": "left",
+        "mobile_image_ratio": "auto",
+        "enable_video_looping": false,
+        "use_custom_colors": false,
+        "colors_button_label": "#ffffff",
+        "colors_button_background": "#1a1b18",
+        "colors_text": "#212326",
+        "colors_background": "#ffffff",
+        "gradient_background": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "scrolling_promotion_Byn4gN": {
+      "type": "scrolling-promotion",
+      "blocks": {
+        "announcement_Mjd6fW": {
+          "type": "announcement",
+          "settings": {
+            "icon": "none",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "text": "Welcome to our store",
+            "text_size": 20,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_Mjd6fW"
+      ],
+      "name": "t:sections.scrolling-promotion.presets.name",
+      "settings": {
+        "direction": "left",
+        "speed": 1.6,
+        "show_divider": false,
+        "use_custom_colors": true,
+        "colors_icon": "#ffffff",
+        "colors_text": "#ffffff",
+        "colors_background": "#212326",
+        "gradient_background": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_wwDjX9": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_rfMKAy": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1",
+            "heading_tag": "h2"
+          }
+        },
+        "text_WiXLUy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_size": "typeset2",
+            "secondary_color": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_rfMKAy",
+        "text_WiXLUy"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image_position": "center center",
+        "layout": "image_first",
+        "text_box_position": "middle",
+        "text_alignment": "left",
+        "image_ratio": "650px",
+        "enlarge_content": false,
+        "full_width": false,
+        "show_divider": false,
+        "image_behavior": "none",
+        "mobile_layout": "image_first",
+        "mobile_text_alignment": "left",
+        "mobile_image_ratio": "auto",
+        "enable_video_looping": false,
+        "use_custom_colors": false,
+        "colors_button_label": "#ffffff",
+        "colors_button_background": "#1a1b18",
+        "colors_text": "#212326",
+        "colors_background": "#ffffff",
+        "gradient_background": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "blocks_fQ4g9X": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c856904_CP8gzK": {
+          "type": "ai_gen_block_c856904",
+          "settings": {
+            "header_col_1": "Feature",
+            "header_col_2": "Benefit",
+            "header_col_3": "Details",
+            "row_1_col_1": "Quality materials",
+            "row_1_col_2": "Long-lasting durability",
+            "row_1_col_3": "Premium construction",
+            "row_2_col_1": "Fast shipping",
+            "row_2_col_2": "Quick delivery",
+            "row_2_col_3": "2-3 business days",
+            "row_3_col_1": "Easy returns",
+            "row_3_col_2": "Hassle-free process",
+            "row_3_col_3": "30-day guarantee",
+            "row_4_col_1": "Customer support",
+            "row_4_col_2": "Expert assistance",
+            "row_4_col_3": "24/7 availability",
+            "header_background": "#212326",
+            "header_text_color": "#ffffff",
+            "row_odd_background": "#f3f3f3",
+            "row_even_background": "#ffffff",
+            "cell_text_color": "#212326",
+            "border_color": "#d2d5d9",
+            "table_background": "#ffffff",
+            "desktop_width_percent": 100,
+            "header_font_size": 16,
+            "cell_font_size": 14,
+            "cell_padding": 16,
+            "border_width": 1,
+            "border_radius": 0,
+            "text_alignment": "left"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c856904_CP8gzK"
+      ],
+      "name": "Benefits table",
+      "settings": {}
+    },
+    "faq_34DCRE": {
+      "type": "faq",
+      "blocks": {
+        "question_yY6LX4": {
+          "type": "question",
+          "settings": {
+            "title": "Frequently asked question",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
+          }
+        },
+        "question_kmeMqN": {
+          "type": "question",
+          "settings": {
+            "title": "Frequently asked question",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_yY6LX4",
+        "question_kmeMqN"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "narrow": false,
+        "secondary_background": false,
+        "show_divider": false,
+        "heading": "FAQs",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "heading_tag": "h2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "177833942880a07573": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_rWxKHq": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_rWxKHq"
+      ],
+      "settings": {
+        "include_margins": true,
+        "show_divider": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "guarantees_Yj7NaV": {
       "type": "guarantees",
       "blocks": {
@@ -236,6 +501,13 @@
     "main",
     "product-recommendations",
     "1771945068374140eb",
+    "scrolling_promotion_4ay3ka",
+    "image_with_text_pdWqXR",
+    "scrolling_promotion_Byn4gN",
+    "image_with_text_wwDjX9",
+    "blocks_fQ4g9X",
+    "faq_34DCRE",
+    "177833942880a07573",
     "guarantees_Yj7NaV",
     "1771850465e38b72c3"
   ]
