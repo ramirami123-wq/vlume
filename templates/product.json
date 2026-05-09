@@ -183,7 +183,7 @@
             "icon": "none",
             "icon_size": "medium",
             "custom_icon": "",
-            "text": "Welcome to our store",
+            "text": "Smooth skin, confident you",
             "text_size": 20,
             "link": ""
           }
@@ -212,7 +212,7 @@
         "heading_6wEtnE": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "Smooth & Gentle Hair Removal",
             "heading_size": "h1",
             "heading_tag": "h2"
           }
@@ -220,7 +220,7 @@
         "text_43eQhA": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p>Experience quick and easy hair removal with a soft foam formula that helps leave your skin smooth, clean, and refreshed after every use.</p><h3></h3>",
             "text_size": "typeset2",
             "secondary_color": false
           }
@@ -232,6 +232,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image": "shopify://shop_images/1777547978_phpj55avipg991ba8yqgAC.jpg",
         "image_position": "center center",
         "layout": "image_first",
         "text_box_position": "middle",
@@ -264,7 +265,7 @@
             "icon": "none",
             "icon_size": "medium",
             "custom_icon": "",
-            "text": "Welcome to our store",
+            "text": "Beauty begins with self-care",
             "text_size": 20,
             "link": ""
           }
@@ -293,7 +294,7 @@
         "heading_rfMKAy": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "Easy Beauty Care at Home",
             "heading_size": "h1",
             "heading_tag": "h2"
           }
@@ -301,7 +302,7 @@
         "text_WiXLUy": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text": "<p>Enjoy a convenient spray application designed for fast, mess-free hair removal from underarms, hands, legs, and more — all from the comfort of your home.</p>",
             "text_size": "typeset2",
             "secondary_color": false
           }
@@ -313,6 +314,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "image": "shopify://shop_images/1777547979_phpqd7h63t17g6q6TVTBkP.jpg",
         "image_position": "center center",
         "layout": "image_first",
         "text_box_position": "middle",
@@ -345,18 +347,18 @@
             "header_col_1": "Feature",
             "header_col_2": "Benefit",
             "header_col_3": "Details",
-            "row_1_col_1": "Quality materials",
-            "row_1_col_2": "Long-lasting durability",
-            "row_1_col_3": "Premium construction",
-            "row_2_col_1": "Fast shipping",
-            "row_2_col_2": "Quick delivery",
-            "row_2_col_3": "2-3 business days",
-            "row_3_col_1": "Easy returns",
-            "row_3_col_2": "Hassle-free process",
-            "row_3_col_3": "30-day guarantee",
-            "row_4_col_1": "Customer support",
-            "row_4_col_2": "Expert assistance",
-            "row_4_col_3": "24/7 availability",
+            "row_1_col_1": "Easy Spray Application",
+            "row_1_col_2": "Quick & mess-free",
+            "row_1_col_3": "Can be messy",
+            "row_2_col_1": "Smooth Skin Finish",
+            "row_2_col_2": "Soft & silky feel",
+            "row_2_col_3": "Rough or dry results",
+            "row_3_col_1": "Gentle Foam Formula",
+            "row_3_col_2": "Comfortable on skin",
+            "row_3_col_3": "May irritate skin",
+            "row_4_col_1": "Fast Hair Removal",
+            "row_4_col_2": "Works in minutes",
+            "row_4_col_3": "Takes longer",
             "header_background": "#212326",
             "header_text_color": "#ffffff",
             "row_odd_background": "#f3f3f3",
@@ -387,21 +389,45 @@
         "question_yY6LX4": {
           "type": "question",
           "settings": {
-            "title": "Frequently asked question",
-            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
+            "title": "How do I use the spray foam?",
+            "text": "<p>Shake well, spray evenly on the desired area, leave for a few minutes, then wipe away and rinse with water.</p><h3></h3>"
           }
         },
         "question_kmeMqN": {
           "type": "question",
           "settings": {
-            "title": "Frequently asked question",
-            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
+            "title": "Is it suitable for all skin types?",
+            "text": "<p>The formula is designed to be gentle, but we recommend doing a patch test before full use.</p><h3></h3>"
+          }
+        },
+        "question_MMRYW9": {
+          "type": "question",
+          "settings": {
+            "title": "Which body areas can I use it on?",
+            "text": "<p>You can use it on underarms, hands, legs, and other body areas as directed.</p><h3></h3>"
+          }
+        },
+        "question_ddrw3c": {
+          "type": "question",
+          "settings": {
+            "title": "How long does the result last?",
+            "text": "<p>Results may vary, but skin usually stays smooth for several days depending on hair growth.</p><h3></h3>"
+          }
+        },
+        "question_3DzMAP": {
+          "type": "question",
+          "settings": {
+            "title": "Does it cause pain?",
+            "text": "<p>No, the spray foam offers a painless hair removal experience compared to waxing.</p><h3></h3>"
           }
         }
       },
       "block_order": [
         "question_yY6LX4",
-        "question_kmeMqN"
+        "question_kmeMqN",
+        "question_MMRYW9",
+        "question_ddrw3c",
+        "question_3DzMAP"
       ],
       "name": "t:sections.faq.presets.name",
       "settings": {
