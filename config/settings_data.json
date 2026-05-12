@@ -66,6 +66,9 @@
     "cart_recommendations_heading": "You may also like",
     "cart_recommendations_show_vendor": true,
     "predictive_search_show_vendor": true,
+    "social_facebook_link": "https://www.facebook.com/share/1CJ2QuNBA6/",
+    "social_instagram_link": "https://www.instagram.com/vlume.lb?igsh=MWZ3eGNvbGh1NDc2cw==",
+    "social_tiktok_link": "https://www.tiktok.com/@vlume.lb?_r=1&_t=ZS-96J8SaKhlGG",
     "gift_card_logo_height": 70,
     "sections": {
       "main-password-header": {
