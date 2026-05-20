@@ -17,9 +17,9 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Delivery All Over  Lebanon",
+            "text": "Delivery For Free All Over Lebanon",
             "text_on_mobile": "",
-            "text_size": 13,
+            "text_size": 14,
             "link": ""
           }
         }
