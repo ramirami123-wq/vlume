@@ -342,46 +342,6 @@
     },
     "blocks_fQ4g9X": {
       "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_c856904_CP8gzK": {
-          "type": "ai_gen_block_c856904",
-          "settings": {
-            "header_col_1": "Feature",
-            "header_col_2": "Benefit",
-            "header_col_3": "Details",
-            "row_1_col_1": "Easy Spray Application",
-            "row_1_col_2": "Quick & mess-free",
-            "row_1_col_3": "Can be messy",
-            "row_2_col_1": "Smooth Skin Finish",
-            "row_2_col_2": "Soft & silky feel",
-            "row_2_col_3": "Rough or dry results",
-            "row_3_col_1": "Gentle Foam Formula",
-            "row_3_col_2": "Comfortable on skin",
-            "row_3_col_3": "May irritate skin",
-            "row_4_col_1": "Fast Hair Removal",
-            "row_4_col_2": "Works in minutes",
-            "row_4_col_3": "Takes longer",
-            "header_background": "#212326",
-            "header_text_color": "#ffffff",
-            "row_odd_background": "#f3f3f3",
-            "row_even_background": "#ffffff",
-            "cell_text_color": "#212326",
-            "border_color": "#d2d5d9",
-            "table_background": "#ffffff",
-            "desktop_width_percent": 100,
-            "header_font_size": 16,
-            "cell_font_size": 14,
-            "cell_padding": 16,
-            "border_width": 1,
-            "border_radius": 0,
-            "text_alignment": "left"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_c856904_CP8gzK"
-      ],
       "name": "Benefits table",
       "settings": {}
     },
