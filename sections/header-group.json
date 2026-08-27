@@ -14,19 +14,10 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement_Jp6WWt": {
-          "type": "announcement",
-          "settings": {
-            "text": "Welcome to our store",
-            "text_on_mobile": "",
-            "text_size": 13,
-            "link": ""
-          }
-        },
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Delivery All Over Lebanon",
+            "text": "Get Free Shipping on Your First Order \"FIRSTORDER\"",
             "text_on_mobile": "",
             "text_size": 14,
             "link": ""
@@ -34,7 +25,6 @@
         }
       },
       "block_order": [
-        "announcement_Jp6WWt",
         "announcement-bar-0"
       ],
       "settings": {
