@@ -15,7 +15,8 @@
         "slide-2": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/1777919924_3_1.png",
+            "image": "shopify://shop_images/Gemini_Generated_Image_tg3fiqtg3fiqtg3f.jpg",
+            "image_mobile": "shopify://shop_images/VLUME1.jpg",
             "image_position": "center center",
             "text_box_position": "bottom-right",
             "subheading": "",
@@ -80,7 +81,7 @@
         "secondary_image_max": 1,
         "show_vendor": false,
         "show_rating": false,
-        "show_quick_buy": true,
+        "show_quick_buy": false,
         "enable_quick_view": true,
         "enable_color_swatches": true,
         "enable_countdown": true,
