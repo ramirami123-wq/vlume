@@ -97,8 +97,8 @@
           "settings": {
             "icon": "none",
             "icon_size": "medium",
-            "custom_icon": "",
-            "text": "🚚 Free Delivery on Your 1st Order! Code: \"FIRSTORDER\"",
+            "custom_icon": "🚚",
+            "text": "Buy 2 To Get Free Delivery!",
             "text_size": 20,
             "link": ""
           }
@@ -173,8 +173,8 @@
           "settings": {
             "icon": "none",
             "icon_size": "medium",
-            "custom_icon": "",
-            "text": "🚚 Free Delivery on Your 1st Order! Code: \"FIRSTORDER\"",
+            "custom_icon": "🚚",
+            "text": "Buy 2 To Get Free Delivery!",
             "text_size": 20,
             "link": ""
           }
