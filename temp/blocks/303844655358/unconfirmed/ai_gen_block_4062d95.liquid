@@ -1,6 +1,546 @@
+{% doc %}
+  @prompt
+    Create a clean, mobile-friendly before-and-after comparison section for the homepage, positioned after the product benefits or guarantees and before the FAQ. Include two clearly labeled image settings, “Before” and “After,” with matching image proportions, an optional draggable comparison slider, a short editable heading, and a brief disclaimer stating that results can vary. Keep the design consistent with the store, easy to use on mobile, and focused on Hair Removal Spray Foam. Do not generate or fabricate customer result images; the merchant will upload authentic, unedited before-and-after photos taken with consistent lighting, angle, distance, and body area.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-before-after-{{ai_gen_id}} {
+    display: block;
+    width: 100%;
+    padding: 40px 20px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-before-after-container-{{ai_gen_id}} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-before-after-heading-{{ai_gen_id}} {
+    text-align: center;
+    margin: 0 0 32px;
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    line-height: 1.2;
+  }
+
+  .ai-before-after-comparison-{{ai_gen_id}} {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 24px;
+    overflow: hidden;
+    border-radius: {{ block.settings.border_radius }}px;
+    background-color: #f3f3f3;
+    touch-action: pan-y;
+  }
+
+  .ai-before-after-image-wrapper-{{ai_gen_id}} {
+    position: relative;
+    width: 100%;
+    padding-bottom: {{ block.settings.aspect_ratio }}%;
+  }
+
+  .ai-before-after-image-{{ai_gen_id}} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-before-after-before-container-{{ai_gen_id}} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .ai-before-after-after-container-{{ai_gen_id}} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ai-before-after-label-{{ai_gen_id}} {
+    position: absolute;
+    top: 16px;
+    padding: 8px 16px;
+    background-color: {{ block.settings.label_background }};
+    color: {{ block.settings.label_text_color }};
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: {{ block.settings.label_border_radius }}px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .ai-before-after-label-{{ai_gen_id}}--before {
+    left: 16px;
+  }
+
+  .ai-before-after-label-{{ai_gen_id}}--after {
+    right: 16px;
+  }
+
+  .ai-before-after-slider-{{ai_gen_id}} {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: {{ block.settings.slider_color }};
+    cursor: ew-resize;
+    z-index: 3;
+    transform: translateX(-50%);
+  }
+
+  .ai-before-after-handle-{{ai_gen_id}} {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 48px;
+    height: 48px;
+    background-color: {{ block.settings.slider_color }};
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .ai-before-after-handle-{{ai_gen_id}}::before,
+  .ai-before-after-handle-{{ai_gen_id}}::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+
+  .ai-before-after-handle-{{ai_gen_id}}::before {
+    left: 10px;
+    border-width: 8px 12px 8px 0;
+    border-color: transparent {{ block.settings.arrow_color }} transparent transparent;
+  }
+
+  .ai-before-after-handle-{{ai_gen_id}}::after {
+    right: 10px;
+    border-width: 8px 0 8px 12px;
+    border-color: transparent transparent transparent {{ block.settings.arrow_color }};
+  }
+
+  .ai-before-after-placeholder-{{ai_gen_id}} {
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-before-after-placeholder-{{ai_gen_id}} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .ai-before-after-disclaimer-{{ai_gen_id}} {
+    text-align: center;
+    font-size: {{ block.settings.disclaimer_size }}px;
+    color: {{ block.settings.disclaimer_color }};
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-before-after-{{ai_gen_id}} {
+      padding: 32px 16px;
+    }
+
+    .ai-before-after-heading-{{ai_gen_id}} {
+      font-size: calc({{ block.settings.heading_size }}px * 0.8);
+      margin-bottom: 24px;
+    }
+
+    .ai-before-after-label-{{ai_gen_id}} {
+      font-size: 12px;
+      padding: 6px 12px;
+      top: 12px;
+    }
+
+    .ai-before-after-label-{{ai_gen_id}}--before {
+      left: 12px;
+    }
+
+    .ai-before-after-label-{{ai_gen_id}}--after {
+      right: 12px;
+    }
+
+    .ai-before-after-handle-{{ai_gen_id}} {
+      width: 40px;
+      height: 40px;
+    }
+
+    .ai-before-after-disclaimer-{{ai_gen_id}} {
+      font-size: calc({{ block.settings.disclaimer_size }}px * 0.9);
+    }
+  }
+{% endstyle %}
+
+<before-after-slider-{{ai_gen_id}}
+  class="ai-before-after-{{ai_gen_id}}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-before-after-container-{{ai_gen_id}}">
+    {%- if block.settings.heading != blank -%}
+      <h2 class="ai-before-after-heading-{{ai_gen_id}}">
+        {{ block.settings.heading }}
+      </h2>
+    {%- endif -%}
+
+    <div class="ai-before-after-comparison-{{ai_gen_id}}" data-comparison>
+      <div class="ai-before-after-image-wrapper-{{ai_gen_id}}">
+        <div class="ai-before-after-after-container-{{ai_gen_id}}">
+          {%- if block.settings.after_image -%}
+            <img
+              src="{{ block.settings.after_image | image_url: width: 1200 }}"
+              alt="{{ block.settings.after_label | escape }}"
+              class="ai-before-after-image-{{ai_gen_id}}"
+              loading="lazy"
+              width="{{ block.settings.after_image.width }}"
+              height="{{ block.settings.after_image.height }}"
+            >
+          {%- else -%}
+            <div class="ai-before-after-placeholder-{{ai_gen_id}}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {%- endif -%}
+          {%- if block.settings.show_labels -%}
+            <span class="ai-before-after-label-{{ai_gen_id}} ai-before-after-label-{{ai_gen_id}}--after">
+              {{ block.settings.after_label }}
+            </span>
+          {%- endif -%}
+        </div>
+
+        <div class="ai-before-after-before-container-{{ai_gen_id}}" data-before-container>
+          {%- if block.settings.before_image -%}
+            <img
+              src="{{ block.settings.before_image | image_url: width: 1200 }}"
+              alt="{{ block.settings.before_label | escape }}"
+              class="ai-before-after-image-{{ai_gen_id}}"
+              loading="lazy"
+              width="{{ block.settings.before_image.width }}"
+              height="{{ block.settings.before_image.height }}"
+            >
+          {%- else -%}
+            <div class="ai-before-after-placeholder-{{ai_gen_id}}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {%- endif -%}
+          {%- if block.settings.show_labels -%}
+            <span class="ai-before-after-label-{{ai_gen_id}} ai-before-after-label-{{ai_gen_id}}--before">
+              {{ block.settings.before_label }}
+            </span>
+          {%- endif -%}
+        </div>
+
+        {%- if block.settings.enable_slider -%}
+          <div class="ai-before-after-slider-{{ai_gen_id}}" data-slider>
+            <div class="ai-before-after-handle-{{ai_gen_id}}"></div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if block.settings.disclaimer != blank -%}
+      <div class="ai-before-after-disclaimer-{{ai_gen_id}}">
+        {{ block.settings.disclaimer }}
+      </div>
+    {%- endif -%}
+  </div>
+</before-after-slider-{{ai_gen_id}}>
+
+<script>
+  (function() {
+    class BeforeAfterSlider{{ai_gen_id}} extends HTMLElement {
+      constructor() {
+        super();
+        this.comparison = null;
+        this.slider = null;
+        this.beforeContainer = null;
+        this.isDragging = false;
+        this.sliderEnabled = {{ block.settings.enable_slider | json }};
+      }
+
+      connectedCallback() {
+        this.comparison = this.querySelector('[data-comparison]');
+        this.slider = this.querySelector('[data-slider]');
+        this.beforeContainer = this.querySelector('[data-before-container]');
+
+        if (!this.comparison || !this.sliderEnabled) return;
+
+        this.setInitialPosition();
+        this.setupEventListeners();
+      }
+
+      setInitialPosition() {
+        const position = {{ block.settings.initial_position }};
+        this.updateSliderPosition(position);
+      }
+
+      setupEventListeners() {
+        this.slider.addEventListener('mousedown', this.startDrag.bind(this));
+        this.slider.addEventListener('touchstart', this.startDrag.bind(this), { passive: true });
+        
+        document.addEventListener('mousemove', this.drag.bind(this));
+        document.addEventListener('touchmove', this.drag.bind(this), { passive: false });
+        
+        document.addEventListener('mouseup', this.stopDrag.bind(this));
+        document.addEventListener('touchend', this.stopDrag.bind(this));
+
+        this.comparison.addEventListener('click', this.handleClick.bind(this));
+      }
+
+      startDrag(e) {
+        this.isDragging = true;
+        e.preventDefault();
+      }
+
+      stopDrag() {
+        this.isDragging = false;
+      }
+
+      drag(e) {
+        if (!this.isDragging) return;
+
+        e.preventDefault();
+        const rect = this.comparison.getBoundingClientRect();
+        const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        const position = ((clientX - rect.left) / rect.width) * 100;
+        
+        this.updateSliderPosition(Math.max(0, Math.min(100, position)));
+      }
+
+      handleClick(e) {
+        if (e.target === this.slider || this.slider.contains(e.target)) return;
+
+        const rect = this.comparison.getBoundingClientRect();
+        const position = ((e.clientX - rect.left) / rect.width) * 100;
+        this.updateSliderPosition(Math.max(0, Math.min(100, position)));
+      }
+
+      updateSliderPosition(position) {
+        if (this.slider && this.beforeContainer) {
+          this.slider.style.left = position + '%';
+          this.beforeContainer.style.clipPath = 'inset(0 ' + (100 - position) + '% 0 0)';
+        }
+      }
+    }
+
+    customElements.define('before-after-slider-{{ai_gen_id}}', BeforeAfterSlider{{ai_gen_id}});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Before and after",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real results with Hair Removal Spray Foam"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before image"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After image"
+    },
+    {
+      "type": "richtext",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "<p>Individual results may vary. Photos show actual customer results with consistent use.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Labels"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_labels",
+      "label": "Show labels",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "before_label",
+      "label": "Before label",
+      "default": "Before"
+    },
+    {
+      "type": "text",
+      "id": "after_label",
+      "label": "After label",
+      "default": "After"
+    },
+    {
+      "type": "header",
+      "content": "Slider"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_slider",
+      "label": "Enable draggable slider",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "initial_position",
+      "label": "Initial position",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum width",
+      "min": 400,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "aspect_ratio",
+      "label": "Image aspect ratio",
+      "min": 50,
+      "max": 150,
+      "step": 5,
+      "unit": "%",
+      "default": 75,
+      "info": "75% is 4:3, 100% is square, 56% is 16:9"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#1a1b18"
+    },
+    {
+      "type": "color",
+      "id": "disclaimer_color",
+      "label": "Disclaimer text",
+      "default": "#6b7280"
+    },
+    {
+      "type": "color",
+      "id": "slider_color",
+      "label": "Slider",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Slider arrows",
+      "default": "#1a1b18"
+    },
+    {
+      "type": "color",
+      "id": "label_background",
+      "label": "Label background",
+      "default": "#212326"
+    },
+    {
+      "type": "color",
+      "id": "label_text_color",
+      "label": "Label text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 20,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "disclaimer_size",
+      "label": "Disclaimer size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "label_border_radius",
+      "label": "Label border radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Before and after"
+    }
+  ]
+}
 {% endschema %}
