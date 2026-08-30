@@ -59,202 +59,132 @@
         "padding_bottom": 36
       }
     },
-    "featured_collection_h637tt": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
+    "featured_product_49HNMP": {
+      "type": "featured-product",
+      "blocks": {
+        "title_bPxNy8": {
+          "type": "title",
+          "settings": {
+            "title_size": "h2",
+            "title_tag": "h2",
+            "show_price": true,
+            "price_size": "medium"
+          }
+        },
+        "rating_NUzrmk": {
+          "type": "rating",
+          "disabled": true,
+          "settings": {}
+        },
+        "countdown_fDtWJa": {
+          "type": "countdown",
+          "disabled": true,
+          "settings": {
+            "heading": "Hurry up ! Sale end in:",
+            "number_size": "compact",
+            "colors_heading": "#da3f3f",
+            "colors_text": "#da3f3f",
+            "colors_background": "#feeeee"
+          }
+        },
+        "price_mhBnUM": {
+          "type": "price",
+          "settings": {
+            "price_size": "medium",
+            "show_badges": true,
+            "sale_badge_basis": "auto"
+          }
+        },
+        "variant_picker_KiHTjA": {
+          "type": "variant_picker",
+          "settings": {
+            "show_variant_labels": true,
+            "picker_type": "button",
+            "enable_color_swatches": true,
+            "swatches_source": "file",
+            "swatch_type": "round",
+            "enable_swatch_cross": true,
+            "enable_swatch_unavailable_click": false,
+            "size_chart": ""
+          }
+        },
+        "buy_buttons_XEGyyn": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        }
+      },
+      "block_order": [
+        "title_bPxNy8",
+        "rating_NUzrmk",
+        "countdown_fDtWJa",
+        "price_mhBnUM",
+        "variant_picker_KiHTjA",
+        "buy_buttons_XEGyyn"
+      ],
+      "name": "t:sections.featured-product.presets.name",
       "settings": {
-        "collection": "frontpage",
-        "products_to_show": 4,
-        "horizontal_scroll": false,
-        "show_view_all": true,
+        "product": "hair-removal-spray-foam",
+        "layout": "media_first",
+        "full_width": false,
         "show_divider": false,
-        "heading": "Featured collection",
-        "heading_size": "h1",
-        "heading_alignment": "left",
-        "heading_tag": "h2",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "show_featured_media": false,
+        "hide_variants": false,
+        "enable_image_zoom": true,
+        "enable_video_looping": false,
+        "image_ratio": "adapt_first",
         "image_position": "center center",
-        "enable_image_fill": true,
-        "show_secondary_image": false,
-        "secondary_image_max": 1,
-        "show_vendor": false,
-        "show_rating": false,
-        "show_quick_buy": false,
-        "enable_quick_view": true,
-        "enable_color_swatches": true,
-        "enable_countdown": true,
+        "enable_layered_images": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
     },
-    "scrolling_promotion_gqQrxK": {
-      "type": "scrolling-promotion",
+    "1788091668cce86f93": {
+      "type": "_blocks",
       "blocks": {
-        "announcement_V6HCmb": {
-          "type": "announcement",
+        "ai_gen_block_3fbc32f_RiXCEA": {
+          "type": "ai_gen_block_3fbc32f",
           "settings": {
-            "icon": "none",
-            "icon_size": "medium",
-            "custom_icon": "🚚",
-            "text": "Buy 2 To Get Free Delivery!",
-            "text_size": 20,
-            "link": ""
-          }
+            "option_1_title": "1 Bottle",
+            "option_1_price": "$16",
+            "option_1_shipping": "",
+            "option_2_title": "2 Bottles",
+            "option_2_price": "$32",
+            "option_2_shipping": "Free shipping",
+            "option_2_badge": "Most Popular",
+            "option_2_savings": "",
+            "option_3_title": "3 Bottles",
+            "option_3_price": "$44",
+            "option_3_shipping": "Free shipping",
+            "option_3_badge": "Best Value",
+            "option_3_savings": "Save $4",
+            "desktop_width_percent": 100,
+            "border_radius": 10,
+            "background_color": "#ffffff",
+            "border_color": "#d2d5d9",
+            "hover_border_color": "#212326",
+            "selected_border_color": "#212326",
+            "selected_background_color": "#f9f9f9",
+            "highlight_border_color": "#212326",
+            "highlight_background_color": "#f9f9f9",
+            "text_color": "#212326",
+            "price_color": "#1a1b18",
+            "shipping_text_color": "#666666",
+            "free_shipping_color": "#008060",
+            "savings_color": "#d72c0d",
+            "badge_background_color": "#212326",
+            "badge_text_color": "#ffffff"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "announcement_V6HCmb"
+        "ai_gen_block_3fbc32f_RiXCEA"
       ],
-      "name": "t:sections.scrolling-promotion.presets.name",
-      "settings": {
-        "direction": "left",
-        "speed": 1.6,
-        "show_divider": false,
-        "use_custom_colors": true,
-        "colors_icon": "#ffffff",
-        "colors_text": "#ffffff",
-        "colors_background": "#212326",
-        "gradient_background": "",
-        "padding_top": 20,
-        "padding_bottom": 20
-      }
-    },
-    "rich_text_iPTEGL": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_NEyD4Q": {
-          "type": "heading",
-          "settings": {
-            "heading": "At Vlume",
-            "heading_size": "h1",
-            "heading_tag": "h2"
-          }
-        },
-        "text_z3jQfd": {
-          "type": "text",
-          "settings": {
-            "text": "<p><br/>we believe beauty is more than appearance; it’s a feeling of self-love, confidence, and empowerment. Our mission is to provide high-quality beauty products that help you shine every day. From skincare essentials to beauty must-haves, we carefully select products designed to enhance your natural beauty while delivering comfort, style, and results.<br/><br/></p>",
-            "text_size": "typeset2",
-            "secondary_color": false,
-            "highlight_phrases": "",
-            "highlight_style": "marker"
-          }
-        }
-      },
-      "block_order": [
-        "heading_NEyD4Q",
-        "text_z3jQfd"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "text_alignment": "left",
-        "mobile_text_alignment": "left",
-        "horizontal_content": false,
-        "narrow": false,
-        "show_divider": false,
-        "use_custom_colors": false,
-        "colors_button_label": "#ffffff",
-        "colors_button_background": "#1a1b18",
-        "colors_text": "#212326",
-        "colors_background": "#ffffff",
-        "colors_highlight": "#bbff00",
-        "gradient_background": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "scrolling_promotion_yJEgih": {
-      "type": "scrolling-promotion",
-      "blocks": {
-        "announcement_pGUAFw": {
-          "type": "announcement",
-          "settings": {
-            "icon": "none",
-            "icon_size": "medium",
-            "custom_icon": "🚚",
-            "text": "Buy 2 To Get Free Delivery!",
-            "text_size": 20,
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement_pGUAFw"
-      ],
-      "name": "t:sections.scrolling-promotion.presets.name",
-      "settings": {
-        "direction": "left",
-        "speed": 1.6,
-        "show_divider": false,
-        "use_custom_colors": true,
-        "colors_icon": "#ffffff",
-        "colors_text": "#ffffff",
-        "colors_background": "#212326",
-        "gradient_background": "",
-        "padding_top": 20,
-        "padding_bottom": 20
-      }
-    },
-    "faq_VkHiGm": {
-      "type": "faq",
-      "blocks": {
-        "question_yNkDQY": {
-          "type": "question",
-          "settings": {
-            "title": "How long does delivery take?",
-            "text": "<p>Delivery usually takes <strong>3–5 business days</strong> depending on your location.</p><h3></h3>"
-          }
-        },
-        "question_YmRBPG": {
-          "type": "question",
-          "settings": {
-            "title": "What payment methods do you accept?",
-            "text": "<p>We offer <strong>Cash on Delivery (COD)</strong> for your convenience and safety.</p><h3></h3>"
-          }
-        },
-        "question_9WMfD8": {
-          "type": "question",
-          "settings": {
-            "title": "Are your products safe?",
-            "text": "<p>Yes! All our products are carefully selected to ensure they are <strong>safe, high-quality, and reliable</strong> for everyday use.</p><h3></h3>"
-          }
-        },
-        "question_DTN4JM": {
-          "type": "question",
-          "settings": {
-            "title": "How can I contact you?",
-            "text": "<p>You can easily reach us through <strong>WhatsApp</strong> for orders, questions, and customer support.</p><h3></h3>"
-          }
-        },
-        "question_BcbDMp": {
-          "type": "question",
-          "settings": {
-            "title": "What makes Vlume special?",
-            "text": "<p>At Vlume, we focus on providing beauty products that combine <strong>quality, affordability, and confidence</strong> for every customer.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "question_yNkDQY",
-        "question_YmRBPG",
-        "question_9WMfD8",
-        "question_DTN4JM",
-        "question_BcbDMp"
-      ],
-      "name": "t:sections.faq.presets.name",
-      "settings": {
-        "narrow": false,
-        "secondary_background": false,
-        "show_divider": false,
-        "heading": "FAQs",
-        "heading_size": "h1",
-        "heading_alignment": "left",
-        "heading_tag": "h2",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+      "settings": {}
     },
     "guarantees_QbnCCW": {
       "type": "guarantees",
@@ -307,15 +237,186 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "faq_VkHiGm": {
+      "type": "faq",
+      "blocks": {
+        "question_yNkDQY": {
+          "type": "question",
+          "settings": {
+            "title": "How long should I leave it on?",
+            "text": "<p>Follow the application time and directions printed on the product label or packaging.</p>"
+          }
+        },
+        "question_YmRBPG": {
+          "type": "question",
+          "settings": {
+            "title": "Is it suitable for sensitive skin?",
+            "text": "<p>Check the product label or packaging for suitability and directions. If you are unsure, consult a qualified healthcare professional before use.</p>"
+          }
+        },
+        "question_9WMfD8": {
+          "type": "question",
+          "settings": {
+            "title": "Which body areas can I use it on?",
+            "text": "<p>Use the product only on the body areas listed on the product label or packaging, and follow those directions.</p>"
+          }
+        },
+        "question_DTN4JM": {
+          "type": "question",
+          "settings": {
+            "title": "How long does delivery take?",
+            "text": "<p>Delivery usually takes <strong>3–5 business days</strong> depending on your location.</p>"
+          }
+        },
+        "question_BcbDMp": {
+          "type": "question",
+          "settings": {
+            "title": "What is the return policy?",
+            "text": "<p>Please review the store’s published return policy for the current terms and eligibility.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_yNkDQY",
+        "question_YmRBPG",
+        "question_9WMfD8",
+        "question_DTN4JM",
+        "question_BcbDMp"
+      ],
+      "name": "t:sections.faq.presets.name",
+      "settings": {
+        "narrow": false,
+        "secondary_background": false,
+        "show_divider": false,
+        "heading": "FAQs",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "heading_tag": "h2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "scrolling_promotion_gqQrxK": {
+      "type": "scrolling-promotion",
+      "blocks": {
+        "announcement_V6HCmb": {
+          "type": "announcement",
+          "settings": {
+            "icon": "none",
+            "icon_size": "medium",
+            "custom_icon": "🚚",
+            "text": "1 bottle: $16 + shipping | 2 bottles: $32 + free shipping — Most Popular ★ | 3 bottles: $44 + free shipping — Best Value",
+            "text_size": 20,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_V6HCmb"
+      ],
+      "disabled": true,
+      "name": "t:sections.scrolling-promotion.presets.name",
+      "settings": {
+        "direction": "left",
+        "speed": 1.6,
+        "show_divider": false,
+        "use_custom_colors": true,
+        "colors_icon": "#ffffff",
+        "colors_text": "#ffffff",
+        "colors_background": "#212326",
+        "gradient_background": "",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "rich_text_iPTEGL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_NEyD4Q": {
+          "type": "heading",
+          "settings": {
+            "heading": "At Vlume",
+            "heading_size": "h1",
+            "heading_tag": "h2"
+          }
+        },
+        "text_z3jQfd": {
+          "type": "text",
+          "settings": {
+            "text": "<p><br/>we believe beauty is more than appearance; it’s a feeling of self-love, confidence, and empowerment. Our mission is to provide high-quality beauty products that help you shine every day. From skincare essentials to beauty must-haves, we carefully select products designed to enhance your natural beauty while delivering comfort, style, and results.<br/><br/></p>",
+            "text_size": "typeset2",
+            "secondary_color": false,
+            "highlight_phrases": "",
+            "highlight_style": "marker"
+          }
+        }
+      },
+      "block_order": [
+        "heading_NEyD4Q",
+        "text_z3jQfd"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "text_alignment": "left",
+        "mobile_text_alignment": "left",
+        "horizontal_content": false,
+        "narrow": false,
+        "show_divider": false,
+        "use_custom_colors": false,
+        "colors_button_label": "#ffffff",
+        "colors_button_background": "#1a1b18",
+        "colors_text": "#212326",
+        "colors_background": "#ffffff",
+        "colors_highlight": "#bbff00",
+        "gradient_background": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "scrolling_promotion_yJEgih": {
+      "type": "scrolling-promotion",
+      "blocks": {
+        "announcement_pGUAFw": {
+          "type": "announcement",
+          "settings": {
+            "icon": "none",
+            "icon_size": "medium",
+            "custom_icon": "🚚",
+            "text": "1 bottle: $16 + shipping | 2 bottles: $32 + free shipping — Most Popular ★ | 3 bottles: $44 + free shipping — Best Value",
+            "text_size": 20,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_pGUAFw"
+      ],
+      "disabled": true,
+      "name": "t:sections.scrolling-promotion.presets.name",
+      "settings": {
+        "direction": "left",
+        "speed": 1.6,
+        "show_divider": false,
+        "use_custom_colors": true,
+        "colors_icon": "#ffffff",
+        "colors_text": "#ffffff",
+        "colors_background": "#212326",
+        "gradient_background": "",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
     }
   },
   "order": [
     "slideshow",
-    "featured_collection_h637tt",
+    "featured_product_49HNMP",
+    "1788091668cce86f93",
+    "guarantees_QbnCCW",
+    "faq_VkHiGm",
     "scrolling_promotion_gqQrxK",
     "rich_text_iPTEGL",
-    "scrolling_promotion_yJEgih",
-    "faq_VkHiGm",
-    "guarantees_QbnCCW"
+    "scrolling_promotion_yJEgih"
   ]
 }
