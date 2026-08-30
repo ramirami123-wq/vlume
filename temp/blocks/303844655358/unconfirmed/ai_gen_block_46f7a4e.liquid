@@ -1,6 +1,496 @@
+{% doc %}
+  @prompt
+    Create an upgraded mobile-friendly Before and After homepage block with three independent image upload settings arranged vertically: the main Before image first, an Additional Before image directly beneath it, and the After image third. Each image must appear in its own full-width row with a clear editable label, square 1:1 presentation, no stretching, and responsive desktop sizing. Include an editable heading and a short results-may-vary disclaimer. Do not use an overlaid slider and do not insert placeholder result images; the merchant will upload authentic photos.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-before-after-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.padding_vertical }}px {{ block.settings.padding_horizontal }}px;
+  }
+
+  .ai-before-after__container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-before-after__heading-{{ ai_gen_id }} {
+    text-align: {{ block.settings.heading_alignment }};
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+    margin: 0 0 {{ block.settings.heading_spacing }}px;
+  }
+
+  .ai-before-after__images-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.image_gap }}px;
+    width: 100%;
+  }
+
+  .ai-before-after__image-row-{{ ai_gen_id }} {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ai-before-after__label-{{ ai_gen_id }} {
+    font-size: {{ block.settings.label_size }}px;
+    color: {{ block.settings.label_color }};
+    font-weight: 600;
+    text-align: {{ block.settings.label_alignment }};
+  }
+
+  .ai-before-after__image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    background-color: {{ block.settings.image_background }};
+  }
+
+  .ai-before-after__image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .ai-before-after__placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-before-after__placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-before-after__empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 16px;
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .ai-before-after__disclaimer-{{ ai_gen_id }} {
+    margin-top: {{ block.settings.disclaimer_spacing }}px;
+    font-size: {{ block.settings.disclaimer_size }}px;
+    color: {{ block.settings.disclaimer_color }};
+    text-align: {{ block.settings.disclaimer_alignment }};
+    font-style: italic;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ai-before-after__container-{{ ai_gen_id }} {
+      max-width: {{ block.settings.desktop_width_percent }}%;
+    }
+
+    .ai-before-after__heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size | times: 1.2 }}px;
+    }
+  }
+{% endstyle %}
+
+<before-after-{{ ai_gen_id }} class="ai-before-after-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-before-after__container-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank %}
+      <h2 class="ai-before-after__heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="ai-before-after__images-{{ ai_gen_id }}">
+      <div class="ai-before-after__image-row-{{ ai_gen_id }}">
+        {% if block.settings.before_label != blank %}
+          <div class="ai-before-after__label-{{ ai_gen_id }}">{{ block.settings.before_label }}</div>
+        {% endif %}
+        <div class="ai-before-after__image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.before_image %}
+            <img
+              src="{{ block.settings.before_image | image_url: width: 1000 }}"
+              alt="{{ block.settings.before_image.alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.before_image.width }}"
+              height="{{ block.settings.before_image.height }}"
+              class="ai-before-after__image-{{ ai_gen_id }}"
+            >
+          {% else %}
+            <div class="ai-before-after__placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+              <div class="ai-before-after__empty-state-{{ ai_gen_id }}">
+                Upload main Before image
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="ai-before-after__image-row-{{ ai_gen_id }}">
+        {% if block.settings.additional_before_label != blank %}
+          <div class="ai-before-after__label-{{ ai_gen_id }}">{{ block.settings.additional_before_label }}</div>
+        {% endif %}
+        <div class="ai-before-after__image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.additional_before_image %}
+            <img
+              src="{{ block.settings.additional_before_image | image_url: width: 1000 }}"
+              alt="{{ block.settings.additional_before_image.alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.additional_before_image.width }}"
+              height="{{ block.settings.additional_before_image.height }}"
+              class="ai-before-after__image-{{ ai_gen_id }}"
+            >
+          {% else %}
+            <div class="ai-before-after__placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+              <div class="ai-before-after__empty-state-{{ ai_gen_id }}">
+                Upload additional Before image
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="ai-before-after__image-row-{{ ai_gen_id }}">
+        {% if block.settings.after_label != blank %}
+          <div class="ai-before-after__label-{{ ai_gen_id }}">{{ block.settings.after_label }}</div>
+        {% endif %}
+        <div class="ai-before-after__image-wrapper-{{ ai_gen_id }}">
+          {% if block.settings.after_image %}
+            <img
+              src="{{ block.settings.after_image | image_url: width: 1000 }}"
+              alt="{{ block.settings.after_image.alt | escape }}"
+              loading="lazy"
+              width="{{ block.settings.after_image.width }}"
+              height="{{ block.settings.after_image.height }}"
+              class="ai-before-after__image-{{ ai_gen_id }}"
+            >
+          {% else %}
+            <div class="ai-before-after__placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+              <div class="ai-before-after__empty-state-{{ ai_gen_id }}">
+                Upload After image
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {% if block.settings.disclaimer != blank %}
+      <div class="ai-before-after__disclaimer-{{ ai_gen_id }}">{{ block.settings.disclaimer }}</div>
+    {% endif %}
+  </div>
+</before-after-{{ ai_gen_id }}>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Before and after",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real results"
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "Individual results may vary. These photos are for illustrative purposes only."
+    },
+    {
+      "type": "header",
+      "content": "Main before image"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "before_label",
+      "label": "Label",
+      "default": "Before"
+    },
+    {
+      "type": "header",
+      "content": "Additional before image"
+    },
+    {
+      "type": "image_picker",
+      "id": "additional_before_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "additional_before_label",
+      "label": "Label",
+      "default": "Before (alternate angle)"
+    },
+    {
+      "type": "header",
+      "content": "After image"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "after_label",
+      "label": "Label",
+      "default": "After"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum width",
+      "min": 400,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "image_gap",
+      "label": "Spacing between images",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "label": "Vertical padding",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Horizontal padding",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Heading style"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "label": "Bottom spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Color",
+      "default": "#1a1b18"
+    },
+    {
+      "type": "header",
+      "content": "Label style"
+    },
+    {
+      "type": "range",
+      "id": "label_size",
+      "label": "Size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "label_alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Color",
+      "default": "#212326"
+    },
+    {
+      "type": "header",
+      "content": "Image style"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "image_background",
+      "label": "Background color",
+      "default": "#f3f3f3"
+    },
+    {
+      "type": "header",
+      "content": "Disclaimer style"
+    },
+    {
+      "type": "range",
+      "id": "disclaimer_size",
+      "label": "Size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "disclaimer_spacing",
+      "label": "Top spacing",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "select",
+      "id": "disclaimer_alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "disclaimer_color",
+      "label": "Color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Before and after"
+    }
+  ]
+}
 {% endschema %}
