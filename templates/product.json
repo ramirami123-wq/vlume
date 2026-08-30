@@ -28,6 +28,7 @@
         },
         "rating": {
           "type": "rating",
+          "disabled": true,
           "settings": {}
         },
         "price": {
@@ -205,7 +206,7 @@
         "heading_6wEtnE": {
           "type": "heading",
           "settings": {
-            "heading": "Smooth & Gentle Hair Removal",
+            "heading": "Product directions",
             "heading_size": "h1",
             "heading_tag": "h2"
           }
@@ -213,7 +214,7 @@
         "text_43eQhA": {
           "type": "text",
           "settings": {
-            "text": "<p>Experience quick and easy hair removal with a soft foam formula that helps leave your skin smooth, clean, and refreshed after every use.</p><h3></h3>",
+            "text": "<p>Read and follow the product label or packaging directions before use.</p>",
             "text_size": "typeset2",
             "secondary_color": false
           }
@@ -296,7 +297,7 @@
         "text_WiXLUy": {
           "type": "text",
           "settings": {
-            "text": "<p>Enjoy a convenient spray application designed for fast, mess-free hair removal from underarms, hands, legs, and more — all from the comfort of your home.</p>",
+            "text": "<p>Use only on areas approved on the product label or packaging, and follow all directions provided.</p>",
             "text_size": "typeset2",
             "secondary_color": false
           }
@@ -345,35 +346,35 @@
           "type": "question",
           "settings": {
             "title": "How do I use the spray foam?",
-            "text": "<p>Shake well, spray evenly on the desired area, leave for a few minutes, then wipe away and rinse with water.</p><h3></h3>"
+            "text": "<p>Follow the application steps and timing printed on the product label or packaging.</p>"
           }
         },
         "question_kmeMqN": {
           "type": "question",
           "settings": {
-            "title": "Is it suitable for all skin types?",
-            "text": "<p>The formula is designed to be gentle, but we recommend doing a patch test before full use.</p><h3></h3>"
+            "title": "Is it suitable for sensitive skin?",
+            "text": "<p>Check the product label or packaging for suitability and safety directions. If you are unsure, consult a qualified healthcare professional before use.</p>"
           }
         },
         "question_MMRYW9": {
           "type": "question",
           "settings": {
             "title": "Which body areas can I use it on?",
-            "text": "<p>You can use it on underarms, hands, legs, and other body areas as directed.</p><h3></h3>"
+            "text": "<p>Use the product only on the body areas listed on the product label or packaging, and follow those directions.</p>"
           }
         },
         "question_ddrw3c": {
           "type": "question",
           "settings": {
             "title": "How long does the result last?",
-            "text": "<p>Results may vary, but skin usually stays smooth for several days depending on hair growth.</p><h3></h3>"
+            "text": "<p>Results can vary. Follow the product label or packaging for the product’s intended use and care guidance.</p>"
           }
         },
         "question_3DzMAP": {
           "type": "question",
           "settings": {
-            "title": "Does it cause pain?",
-            "text": "<p>No, the spray foam offers a painless hair removal experience compared to waxing.</p><h3></h3>"
+            "title": "What should I know before use?",
+            "text": "<p>Read and follow the product label or packaging directions before use. If you have questions about suitability or safety, consult a qualified healthcare professional.</p>"
           }
         }
       },
