@@ -1,6 +1,477 @@
+{% doc %}
+  @prompt
+    Create a clean, mobile-friendly three-option offer selector for Hair Removal Spray Foam, positioned prominently near the product purchase controls. Option 1: “1 Bottle”, “$16 + shipping”. Option 2: “2 Bottles”, “$32 + free shipping”, labeled “Most Popular”, visually highlighted and selected by default. Option 3: “3 Bottles”, “$44 + free shipping”, labeled “Best Value”. Each option should clearly communicate quantity, total price, shipping benefit, and savings. Selecting an option should update the quantity added to cart to 1, 2, or 3 bottles. Match the store’s existing visual style, use strong but tasteful emphasis, and ensure the options are easy to tap on mobile. Do not include the old $43 wording.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-offer-selector-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    margin: 0 auto;
+  }
+
+  .ai-offer-selector__container-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ai-offer-selector__option-{{ ai_gen_id }} {
+    position: relative;
+    border: 2px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: {{ block.settings.background_color }};
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 70px;
+  }
+
+  .ai-offer-selector__option-{{ ai_gen_id }}:hover {
+    border-color: {{ block.settings.hover_border_color }};
+    transform: translateY(-1px);
+  }
+
+  .ai-offer-selector__option-{{ ai_gen_id }}.selected {
+    border-color: {{ block.settings.selected_border_color }};
+    background-color: {{ block.settings.selected_background_color }};
+    border-width: 2px;
+  }
+
+  .ai-offer-selector__option-{{ ai_gen_id }}.highlighted {
+    border-color: {{ block.settings.highlight_border_color }};
+    background-color: {{ block.settings.highlight_background_color }};
+  }
+
+  .ai-offer-selector__radio-{{ ai_gen_id }} {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid {{ block.settings.border_color }};
+    border-radius: 50%;
+    position: relative;
+    background-color: #ffffff;
+  }
+
+  .ai-offer-selector__option-{{ ai_gen_id }}.selected .ai-offer-selector__radio-{{ ai_gen_id }} {
+    border-color: {{ block.settings.selected_border_color }};
+  }
+
+  .ai-offer-selector__option-{{ ai_gen_id }}.selected .ai-offer-selector__radio-{{ ai_gen_id }}::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: {{ block.settings.selected_border_color }};
+  }
+
+  .ai-offer-selector__content-{{ ai_gen_id }} {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .ai-offer-selector__top-row-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .ai-offer-selector__quantity-{{ ai_gen_id }} {
+    font-weight: 600;
+    font-size: 16px;
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-offer-selector__badge-{{ ai_gen_id }} {
+    background-color: {{ block.settings.badge_background_color }};
+    color: {{ block.settings.badge_text_color }};
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .ai-offer-selector__price-{{ ai_gen_id }} {
+    font-size: 18px;
+    font-weight: 700;
+    color: {{ block.settings.price_color }};
+    margin-bottom: 2px;
+  }
+
+  .ai-offer-selector__shipping-{{ ai_gen_id }} {
+    font-size: 14px;
+    color: {{ block.settings.shipping_text_color }};
+  }
+
+  .ai-offer-selector__free-shipping-{{ ai_gen_id }} {
+    color: {{ block.settings.free_shipping_color }};
+    font-weight: 600;
+  }
+
+  .ai-offer-selector__savings-{{ ai_gen_id }} {
+    font-size: 13px;
+    color: {{ block.settings.savings_color }};
+    font-weight: 500;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-offer-selector-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-offer-selector__option-{{ ai_gen_id }} {
+      padding: 14px;
+    }
+
+    .ai-offer-selector__quantity-{{ ai_gen_id }} {
+      font-size: 15px;
+    }
+
+    .ai-offer-selector__price-{{ ai_gen_id }} {
+      font-size: 17px;
+    }
+
+    .ai-offer-selector__shipping-{{ ai_gen_id }} {
+      font-size: 13px;
+    }
+
+    .ai-offer-selector__badge-{{ ai_gen_id }} {
+      font-size: 11px;
+      padding: 3px 8px;
+    }
+  }
+{% endstyle %}
+
+<offer-selector-{{ ai_gen_id }} class="ai-offer-selector-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-offer-selector__container-{{ ai_gen_id }}">
+    <div 
+      class="ai-offer-selector__option-{{ ai_gen_id }}" 
+      data-quantity="1"
+      data-offer-option
+    >
+      <div class="ai-offer-selector__radio-{{ ai_gen_id }}"></div>
+      <div class="ai-offer-selector__content-{{ ai_gen_id }}">
+        <div class="ai-offer-selector__top-row-{{ ai_gen_id }}">
+          <div class="ai-offer-selector__quantity-{{ ai_gen_id }}">{{ block.settings.option_1_title }}</div>
+        </div>
+        <div class="ai-offer-selector__price-{{ ai_gen_id }}">{{ block.settings.option_1_price }}</div>
+        <div class="ai-offer-selector__shipping-{{ ai_gen_id }}">{{ block.settings.option_1_shipping }}</div>
+      </div>
+    </div>
+
+    <div 
+      class="ai-offer-selector__option-{{ ai_gen_id }} highlighted selected" 
+      data-quantity="2"
+      data-offer-option
+    >
+      <div class="ai-offer-selector__radio-{{ ai_gen_id }}"></div>
+      <div class="ai-offer-selector__content-{{ ai_gen_id }}">
+        <div class="ai-offer-selector__top-row-{{ ai_gen_id }}">
+          <div class="ai-offer-selector__quantity-{{ ai_gen_id }}">{{ block.settings.option_2_title }}</div>
+          <div class="ai-offer-selector__badge-{{ ai_gen_id }}">{{ block.settings.option_2_badge }}</div>
+        </div>
+        <div class="ai-offer-selector__price-{{ ai_gen_id }}">{{ block.settings.option_2_price }}</div>
+        <div class="ai-offer-selector__shipping-{{ ai_gen_id }} ai-offer-selector__free-shipping-{{ ai_gen_id }}">{{ block.settings.option_2_shipping }}</div>
+        {%- if block.settings.option_2_savings != blank -%}
+          <div class="ai-offer-selector__savings-{{ ai_gen_id }}">{{ block.settings.option_2_savings }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div 
+      class="ai-offer-selector__option-{{ ai_gen_id }}" 
+      data-quantity="3"
+      data-offer-option
+    >
+      <div class="ai-offer-selector__radio-{{ ai_gen_id }}"></div>
+      <div class="ai-offer-selector__content-{{ ai_gen_id }}">
+        <div class="ai-offer-selector__top-row-{{ ai_gen_id }}">
+          <div class="ai-offer-selector__quantity-{{ ai_gen_id }}">{{ block.settings.option_3_title }}</div>
+          <div class="ai-offer-selector__badge-{{ ai_gen_id }}">{{ block.settings.option_3_badge }}</div>
+        </div>
+        <div class="ai-offer-selector__price-{{ ai_gen_id }}">{{ block.settings.option_3_price }}</div>
+        <div class="ai-offer-selector__shipping-{{ ai_gen_id }} ai-offer-selector__free-shipping-{{ ai_gen_id }}">{{ block.settings.option_3_shipping }}</div>
+        {%- if block.settings.option_3_savings != blank -%}
+          <div class="ai-offer-selector__savings-{{ ai_gen_id }}">{{ block.settings.option_3_savings }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</offer-selector-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class OfferSelector{{ai_gen_id}} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.options = this.querySelectorAll('[data-offer-option]');
+        this.setupEventListeners();
+        this.updateQuantity();
+      }
+
+      setupEventListeners() {
+        this.options.forEach((option) => {
+          option.addEventListener('click', () => {
+            this.options.forEach((opt) => opt.classList.remove('selected'));
+            option.classList.add('selected');
+            this.updateQuantity();
+          });
+        });
+      }
+
+      updateQuantity() {
+        const selectedOption = this.querySelector('[data-offer-option].selected');
+        if (!selectedOption) return;
+
+        const quantity = parseInt(selectedOption.dataset.quantity);
+        
+        const quantityInput = document.querySelector('input[name="quantity"]');
+        if (quantityInput) {
+          quantityInput.value = quantity;
+          
+          const changeEvent = new Event('change', { bubbles: true });
+          quantityInput.dispatchEvent(changeEvent);
+        }
+
+        const quantitySelectors = document.querySelectorAll('.quantity__input');
+        quantitySelectors.forEach(selector => {
+          if (selector.tagName === 'INPUT') {
+            selector.value = quantity;
+          }
+        });
+      }
+    }
+
+    customElements.define('offer-selector-{{ ai_gen_id }}', OfferSelector{{ai_gen_id}});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Offer selector",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Option 1"
+    },
+    {
+      "type": "text",
+      "id": "option_1_title",
+      "label": "Title",
+      "default": "1 Bottle"
+    },
+    {
+      "type": "text",
+      "id": "option_1_price",
+      "label": "Price",
+      "default": "$16"
+    },
+    {
+      "type": "text",
+      "id": "option_1_shipping",
+      "label": "Shipping text",
+      "default": "+ shipping"
+    },
+    {
+      "type": "header",
+      "content": "Option 2"
+    },
+    {
+      "type": "text",
+      "id": "option_2_title",
+      "label": "Title",
+      "default": "2 Bottles"
+    },
+    {
+      "type": "text",
+      "id": "option_2_price",
+      "label": "Price",
+      "default": "$32"
+    },
+    {
+      "type": "text",
+      "id": "option_2_shipping",
+      "label": "Shipping text",
+      "default": "Free shipping"
+    },
+    {
+      "type": "text",
+      "id": "option_2_badge",
+      "label": "Badge text",
+      "default": "Most Popular"
+    },
+    {
+      "type": "text",
+      "id": "option_2_savings",
+      "label": "Savings text"
+    },
+    {
+      "type": "header",
+      "content": "Option 3"
+    },
+    {
+      "type": "text",
+      "id": "option_3_title",
+      "label": "Title",
+      "default": "3 Bottles"
+    },
+    {
+      "type": "text",
+      "id": "option_3_price",
+      "label": "Price",
+      "default": "$44"
+    },
+    {
+      "type": "text",
+      "id": "option_3_shipping",
+      "label": "Shipping text",
+      "default": "Free shipping"
+    },
+    {
+      "type": "text",
+      "id": "option_3_badge",
+      "label": "Badge text",
+      "default": "Best Value"
+    },
+    {
+      "type": "text",
+      "id": "option_3_savings",
+      "label": "Savings text",
+      "default": "Save $4"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border",
+      "default": "#d2d5d9"
+    },
+    {
+      "type": "color",
+      "id": "hover_border_color",
+      "label": "Hover border",
+      "default": "#212326"
+    },
+    {
+      "type": "color",
+      "id": "selected_border_color",
+      "label": "Selected border",
+      "default": "#212326"
+    },
+    {
+      "type": "color",
+      "id": "selected_background_color",
+      "label": "Selected background",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "color",
+      "id": "highlight_border_color",
+      "label": "Highlight border",
+      "default": "#212326"
+    },
+    {
+      "type": "color",
+      "id": "highlight_background_color",
+      "label": "Highlight background",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#212326"
+    },
+    {
+      "type": "color",
+      "id": "price_color",
+      "label": "Price",
+      "default": "#1a1b18"
+    },
+    {
+      "type": "color",
+      "id": "shipping_text_color",
+      "label": "Shipping text",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "free_shipping_color",
+      "label": "Free shipping text",
+      "default": "#008060"
+    },
+    {
+      "type": "color",
+      "id": "savings_color",
+      "label": "Savings text",
+      "default": "#d72c0d"
+    },
+    {
+      "type": "color",
+      "id": "badge_background_color",
+      "label": "Badge background",
+      "default": "#212326"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge text",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Offer selector"
+    }
+  ]
+}
 {% endschema %}
