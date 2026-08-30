@@ -13,18 +13,6 @@
   "sections": {
     "footer": {
       "type": "footer",
-      "blocks": {
-        "footer-2": {
-          "type": "link_list",
-          "settings": {
-            "heading": "More",
-            "menu": "footer"
-          }
-        }
-      },
-      "block_order": [
-        "footer-2"
-      ],
       "settings": {
         "show_divider": true,
         "newsletter_enable": false,
@@ -33,7 +21,7 @@
         "return_url": "",
         "enable_follow_on_shop": true,
         "show_social": true,
-        "social_heading": "",
+        "social_heading": "Follow Vlume",
         "enable_country_selector": true,
         "enable_language_selector": true,
         "payment_enable": true,

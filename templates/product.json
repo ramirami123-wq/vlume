@@ -176,57 +176,6 @@
       "name": "Offer selector",
       "settings": {}
     },
-    "image_with_text_pdWqXR": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_6wEtnE": {
-          "type": "heading",
-          "settings": {
-            "heading": "Product directions",
-            "heading_size": "h1",
-            "heading_tag": "h2"
-          }
-        },
-        "text_43eQhA": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Read and follow the product label or packaging directions before use.</p>",
-            "text_size": "typeset2",
-            "secondary_color": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_6wEtnE",
-        "text_43eQhA"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/WhatsApp_Image_2026-05-20_at_7.40.26_PM.jpg",
-        "image_position": "center center",
-        "layout": "image_first",
-        "text_box_position": "middle",
-        "text_alignment": "left",
-        "image_ratio": "650px",
-        "enlarge_content": false,
-        "full_width": false,
-        "show_divider": false,
-        "image_behavior": "none",
-        "mobile_layout": "image_first",
-        "mobile_text_alignment": "left",
-        "mobile_image_ratio": "auto",
-        "enable_video_looping": false,
-        "video_url": "",
-        "use_custom_colors": false,
-        "colors_button_label": "#ffffff",
-        "colors_button_background": "#1a1b18",
-        "colors_text": "#212326",
-        "colors_background": "#ffffff",
-        "gradient_background": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "guarantees_Yj7NaV": {
       "type": "guarantees",
       "blocks": {
@@ -363,15 +312,6 @@
         "padding_bottom": 36
       }
     },
-    "1771945068374140eb": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true,
-        "show_divider": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "scrolling_promotion_4ay3ka": {
       "type": "scrolling-promotion",
       "blocks": {
@@ -496,15 +436,6 @@
       "name": "Benefits table",
       "settings": {}
     },
-    "177833942880a07573": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true,
-        "show_divider": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "1771850465e38b72c3": {
       "type": "_blocks",
       "settings": {}
@@ -513,16 +444,13 @@
   "order": [
     "main",
     "blocks_q6hP4C",
-    "image_with_text_pdWqXR",
     "guarantees_Yj7NaV",
     "faq_34DCRE",
     "product-recommendations",
-    "1771945068374140eb",
     "scrolling_promotion_4ay3ka",
     "scrolling_promotion_Byn4gN",
     "image_with_text_wwDjX9",
     "blocks_fQ4g9X",
-    "177833942880a07573",
     "1771850465e38b72c3"
   ]
 }
