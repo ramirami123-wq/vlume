@@ -14,6 +14,7 @@
       "blocks": {
         "custom_liquid_Q4eMAn": {
           "type": "custom_liquid",
+          "disabled": true,
           "settings": {
             "custom_liquid": "<style>\n  .star-review-wrapper {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-shrink: 0;\n  }\n\n  .star-icons svg {\n    width: 20px;\n    height: 20px;\n    fill: BLACK; /* Your deep red color */\n  }\n\n  .review-text {\n    font-size: 16px;\n    font-weight: 500;\n    color: #333;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 480px) {\n    .star-review-wrapper {\n      flex-direction: row;\n      justify-content: center;\n    }\n\n    .review-text {\n      font-size: 15px;\n    }\n  }\n</style>\n\n<div class=\"star-review-wrapper\">\n  <div class=\"star-icons\">\n    <!-- 5 Rounded Stars -->\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/></svg>\n  </div>\n  <div class=\"review-text\">\n    <strong>5</strong> by <strong>194+</strong> Customers\n  </div>\n</div>"
           }
@@ -41,18 +42,21 @@
         },
         "custom_liquid_TJV3Ri": {
           "type": "custom_liquid",
+          "disabled": true,
           "settings": {
             "custom_liquid": "<section class=\"sale-timer\" aria-label=\"Sale countdown timer\">\n  <style>\n    .sale-timer{\n      width:100%;\n      padding:22px 12px;\n      display:flex;\n      justify-content:center;\n      background:##CB572A;\n      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;\n    }\n    .sale-timer__wrap{\n      text-align:center;\n    }\n    .sale-timer__label{\n      font-size:24px;\n      font-weight:500;\n      color:#111;\n      margin:0 0 14px 0;\n      line-height:1.1;\n    }\n\n    .sale-timer__row{\n      display:flex;\n      align-items:center;\n      justify-content:center;\n      gap:10px;\n    }\n\n    .sale-timer__box{\n      width:88px;\n      height:68px;\n      background:BLACK;\n      color:#fff;\n      border-radius:6px;\n      display:flex;\n      align-items:center;\n      justify-content:center;\n      font-size:34px;\n      font-weight:700;\n      letter-spacing:1px;\n      font-variant-numeric: tabular-nums;\n    }\n\n    .sale-timer__colon{\n      font-size:32px;\n      font-weight:700;\n      color:#ff2a2a;\n      line-height:1;\n      transform: translateY(-1px);\n      user-select:none;\n    }\n\n    @media (max-width:420px){\n      .sale-timer__label{ font-size:20px; }\n      .sale-timer__box{ width:72px; height:58px; font-size:30px; }\n      .sale-timer__colon{ font-size:28px; }\n      .sale-timer__row{ gap:8px; }\n    }\n  </style>\n\n  <div class=\"sale-timer__wrap\">\n    <div class=\"sale-timer__label\">Hurry! Sale ends in</div>\n\n    <div class=\"sale-timer__row\" role=\"timer\" aria-live=\"polite\">\n      <div class=\"sale-timer__box\" id=\"st-hours\">00</div>\n      <div class=\"sale-timer__colon\">:</div>\n      <div class=\"sale-timer__box\" id=\"st-mins\">00</div>\n      <div class=\"sale-timer__colon\">:</div>\n      <div class=\"sale-timer__box\" id=\"st-secs\">00</div>\n    </div>\n  </div>\n\n  <script>\n    (function () {\n      const durationHours = 12; // change if needed\n      const endAt = Date.now() + durationHours * 60 * 60 * 1000;\n\n      const h = document.getElementById(\"st-hours\");\n      const m = document.getElementById(\"st-mins\");\n      const s = document.getElementById(\"st-secs\");\n\n      const pad = n => String(n).padStart(2, \"0\");\n\n      function update(){\n        let diff = endAt - Date.now();\n        if(diff < 0) diff = 0;\n\n        const total = Math.floor(diff / 1000);\n        h.textContent = pad(Math.floor(total / 3600));\n        m.textContent = pad(Math.floor((total % 3600) / 60));\n        s.textContent = pad(total % 60);\n\n        if(diff === 0) clearInterval(timer);\n      }\n\n      update();\n      const timer = setInterval(update, 1000);\n    })();\n  </script>\n</section>"
           }
         },
         "custom_liquid_H9DXEK": {
           "type": "custom_liquid",
+          "disabled": true,
           "settings": {
             "custom_liquid": "<div style=\"padding: 12px; text-align: left; background-color: #f9f9f9; font-size: 15px; border-radius: 12px; margin-top: 10px; margin-bottom: 10px; line-height: 1.6;\">\n\n<span style=\"font-weight: bold;\">🌸 Quick & Easy Hair Removal</span> – Removes unwanted hair smoothly in just minutes.<br><br>\n\n<span style=\"font-weight: bold;\">✨ Soft & Smooth Skin</span> – Leaves your skin feeling clean, fresh, and silky after use.<br><br>\n\n<span style=\"font-weight: bold;\">🧴 Gentle Foam Formula</span> – Designed for underarms, hands, legs, and body use with a skin-friendly formula.<br><br>\n\n<span style=\"font-weight: bold;\">💖 Easy Spray Application</span> – Convenient spray foam design for fast and mess-free hair removal at home.\n\n</div>"
           }
         },
         "variant_picker": {
           "type": "variant_picker",
+          "disabled": true,
           "settings": {
             "show_variant_labels": true,
             "picker_type": "button",
@@ -70,12 +74,6 @@
             "show_quantity_selector": true,
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": false
-          }
-        },
-        "custom_liquid_wbDEGx": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "<style>\n  .bundle-selector {\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    margin: 16px 0;\n    font-family: inherit;\n  }\n  .bundle-option {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 12px 16px;\n    border: 2px solid #e0e0e0;\n    border-radius: 12px;\n    cursor: pointer;\n    transition: all 0.2s ease;\n    background: #fff;\n  }\n  .bundle-option:hover { border-color: #000; }\n  .bundle-option.selected {\n    border-color: #000;\n    background: #f9f9f9;\n  }\n  .bundle-option .bundle-left {\n    display: flex;\n    align-items: center;\n    gap: 12px;\n  }\n  .bundle-radio {\n    width: 18px;\n    height: 18px;\n    border-radius: 50%;\n    border: 2px solid #ccc;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-shrink: 0;\n  }\n  .bundle-option.selected .bundle-radio {\n    border-color: #000;\n    background: #000;\n  }\n  .bundle-option.selected .bundle-radio::after {\n    content: '';\n    width: 8px;\n    height: 8px;\n    border-radius: 50%;\n    background: #fff;\n    display: block;\n  }\n  .bundle-title {\n    font-weight: 600;\n    font-size: 14px;\n    color: #111;\n  }\n  .bundle-subtitle {\n    font-size: 12px;\n    color: #666;\n    margin-top: 2px;\n  }\n  .bundle-price {\n    font-weight: 700;\n    font-size: 15px;\n    color: #111;\n    text-align: right;\n  }\n  .bundle-badge {\n    background: #111;\n    color: #fff;\n    font-size: 11px;\n    font-weight: 600;\n    padding: 2px 8px;\n    border-radius: 20px;\n    margin-top: 4px;\n    display: inline-block;\n  }\n</style>\n\n<!-- Bundle Selector -->\n<div class=\"bundle-selector\">\n  <div class=\"bundle-option\" data-qty=\"1\" onclick=\"selectBundle(this, 1)\">\n    <div class=\"bundle-left\">\n      <div class=\"bundle-radio\"></div>\n      <div>\n        <div class=\"bundle-title\">Buy 1</div>\n        <div class=\"bundle-subtitle\">Standard order</div>\n      </div>\n    </div>\n    <div class=\"bundle-price\">$16</div>\n  </div>\n\n  <div class=\"bundle-option selected\" data-qty=\"2\" onclick=\"selectBundle(this, 2)\">\n    <div class=\"bundle-left\">\n      <div class=\"bundle-radio\"></div>\n      <div>\n        <div class=\"bundle-title\">Buy 2 ⭐ Best Value</div>\n        <div class=\"bundle-subtitle\">🚚 Free Delivery included!</div>\n      </div>\n    </div>\n    <div style=\"text-align:right;\">\n      <div class=\"bundle-price\">$32</div>\n      <span class=\"bundle-badge\">Free Shipping</span>\n    </div>\n  </div>\n\n  <div class=\"bundle-option\" data-qty=\"3\" onclick=\"selectBundle(this, 3)\">\n    <div class=\"bundle-left\">\n      <div class=\"bundle-radio\"></div>\n      <div>\n        <div class=\"bundle-title\">Buy 3</div>\n        <div class=\"bundle-subtitle\">Save $5 automatically!</div>\n      </div>\n    </div>\n    <div style=\"text-align:right;\">\n      <div class=\"bundle-price\">$43</div>\n      <span class=\"bundle-badge\">Save $5</span>\n    </div>\n  </div>\n</div>\n\n<!-- Delivery Date Estimator -->\n<div style=\"padding: 12px; text-align: left; background-color: #f5f5f5; font-size: 15px; border-radius: 13px; margin-top: 12px; margin-bottom: 12px; display: flex; align-items: center;\">\n  <span class=\"em\" style=\"margin-right: 8px;\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 -960 960 960\" width=\"24px\" fill=\"#545454\">\n      <path d=\"M240-160q-50 0-85-35t-35-85H40v-440q0-33 23.5-56.5T120-800h560v160h120l120 160v200h-80q0 50-35 85t-85 35q-50 0-85-35t-35-85H360q0 50-35 85t-85 35Zm0-80q17 0 28.5-11.5T280-280q0-17-11.5-28.5T240-320q-17 0-28.5 11.5T200-280q0 17 11.5 28.5T240-240ZM120-360h32q17-18 39-29t49-11q27 0 49 11t39 29h272v-360H120v360Zm600 120q17 0 28.5-11.5T760-280q0-17-11.5-28.5T720-320q-17 0-28.5 11.5T680-280q0 17 11.5 28.5T720-240Zm-40-200h170l-90-120h-80v120ZM360-540Z\"/>\n    </svg>\n  </span>\n  <span>Order now to receive by <span id=\"delivery-dates\" style=\"font-weight: bold;\"></span></span>\n</div>\n\n<script>\n  // Bundle Selector\n  function selectBundle(el, qty) {\n    document.querySelectorAll('.bundle-option').forEach(function(opt) {\n      opt.classList.remove('selected');\n    });\n    el.classList.add('selected');\n    var qtyInput = document.querySelector('input[name=\"quantity\"], input.quantity__input, input[id*=\"quantity\"]');\n    if (qtyInput) {\n      qtyInput.value = qty;\n      qtyInput.dispatchEvent(new Event('change', { bubbles: true }));\n    }\n  }\n\n  document.addEventListener('DOMContentLoaded', function() {\n    // Auto-select Buy 2 on load\n    var defaultOption = document.querySelector('.bundle-option[data-qty=\"2\"]');\n    if (defaultOption) selectBundle(defaultOption, 2);\n\n    // Delivery Date Estimator (skips Sundays)\n    function addBusinessDays(date, days) {\n      var result = new Date(date);\n      var added = 0;\n      while (added < days) {\n        result.setDate(result.getDate() + 1);\n        if (result.getDay() !== 0) { added++; }\n      }\n      return result;\n    }\n\n    var currentDate = new Date();\n    var minDeliveryDate = addBusinessDays(currentDate, 3);\n    var maxDeliveryDate = addBusinessDays(currentDate, 5);\n\n    var formatDate = function(date) {\n      var dayNames = [\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"];\n      var monthNames = [\"January\",\"February\",\"March\",\"April\",\"May\",\"June\",\"July\",\"August\",\"September\",\"October\",\"November\",\"December\"];\n      return dayNames[date.getDay()] + \", \" + monthNames[date.getMonth()] + \" \" + date.getDate();\n    };\n\n    document.getElementById('delivery-dates').textContent =\n      formatDate(minDeliveryDate) + ' – ' + formatDate(maxDeliveryDate);\n  });\n</script>"
           }
         },
         "related_buttons": {
@@ -109,7 +107,6 @@
         "custom_liquid_H9DXEK",
         "variant_picker",
         "buy_buttons",
-        "custom_liquid_wbDEGx",
         "related_buttons",
         "sticky_cart",
         "collapsible_description_mFEEde"
@@ -134,71 +131,50 @@
         "padding_bottom": 72
       }
     },
-    "product-recommendations": {
-      "type": "product-recommendations",
-      "settings": {
-        "product_list_limit": 4,
-        "show_divider": false,
-        "heading": "You May Also Like",
-        "heading_size": "h1",
-        "heading_alignment": "center",
-        "heading_tag": "h2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "image_ratio": "portrait",
-        "image_position": "center center",
-        "enable_image_fill": true,
-        "show_secondary_image": true,
-        "show_vendor": true,
-        "show_rating": true,
-        "show_quick_buy": true,
-        "enable_quick_view": true,
-        "enable_color_swatches": true,
-        "enable_countdown": true,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "1771945068374140eb": {
-      "type": "apps",
-      "settings": {
-        "include_margins": true,
-        "show_divider": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "scrolling_promotion_4ay3ka": {
-      "type": "scrolling-promotion",
+    "blocks_q6hP4C": {
+      "type": "_blocks",
       "blocks": {
-        "announcement_cFWJEW": {
-          "type": "announcement",
+        "ai_gen_block_3fbc32f_Ngb8wC": {
+          "type": "ai_gen_block_3fbc32f",
           "settings": {
-            "icon": "none",
-            "icon_size": "medium",
-            "custom_icon": "",
-            "text": "Smooth skin, confident you",
-            "text_size": 20,
-            "link": ""
-          }
+            "option_1_title": "1 Bottle",
+            "option_1_price": "$16",
+            "option_1_shipping": "",
+            "option_2_title": "2 Bottles",
+            "option_2_price": "$32",
+            "option_2_shipping": "Free shipping",
+            "option_2_badge": "Most Popular",
+            "option_2_savings": "",
+            "option_3_title": "3 Bottles",
+            "option_3_price": "$44",
+            "option_3_shipping": "Free shipping",
+            "option_3_badge": "Best Value",
+            "option_3_savings": "Save $4",
+            "desktop_width_percent": 100,
+            "border_radius": 10,
+            "background_color": "#ffffff",
+            "border_color": "#d2d5d9",
+            "hover_border_color": "#212326",
+            "selected_border_color": "#212326",
+            "selected_background_color": "#f9f9f9",
+            "highlight_border_color": "#212326",
+            "highlight_background_color": "#f9f9f9",
+            "text_color": "#212326",
+            "price_color": "#1a1b18",
+            "shipping_text_color": "#666666",
+            "free_shipping_color": "#008060",
+            "savings_color": "#d72c0d",
+            "badge_background_color": "#212326",
+            "badge_text_color": "#ffffff"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "announcement_cFWJEW"
+        "ai_gen_block_3fbc32f_Ngb8wC"
       ],
-      "name": "t:sections.scrolling-promotion.presets.name",
-      "settings": {
-        "direction": "left",
-        "speed": 1.6,
-        "show_divider": false,
-        "use_custom_colors": true,
-        "colors_icon": "#ffffff",
-        "colors_text": "#ffffff",
-        "colors_background": "#212326",
-        "gradient_background": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+      "name": "Offer selector",
+      "settings": {}
     },
     "image_with_text_pdWqXR": {
       "type": "image-with-text",
@@ -251,93 +227,57 @@
         "padding_bottom": 36
       }
     },
-    "scrolling_promotion_Byn4gN": {
-      "type": "scrolling-promotion",
+    "guarantees_Yj7NaV": {
+      "type": "guarantees",
       "blocks": {
-        "announcement_Mjd6fW": {
-          "type": "announcement",
+        "guarantee_C9FjyP": {
+          "type": "guarantee",
           "settings": {
-            "icon": "none",
+            "icon": "truck",
             "icon_size": "medium",
             "custom_icon": "",
-            "text": "Beauty begins with self-care",
-            "text_size": 20,
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "announcement_Mjd6fW"
-      ],
-      "name": "t:sections.scrolling-promotion.presets.name",
-      "settings": {
-        "direction": "left",
-        "speed": 1.6,
-        "show_divider": false,
-        "use_custom_colors": true,
-        "colors_icon": "#ffffff",
-        "colors_text": "#ffffff",
-        "colors_background": "#212326",
-        "gradient_background": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "image_with_text_wwDjX9": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_rfMKAy": {
-          "type": "heading",
-          "settings": {
-            "heading": "Easy Beauty Care at Home",
-            "heading_size": "h1",
-            "heading_tag": "h2"
+            "title": "DELIVERY ALL OVER LEBANON",
+            "title_size": "h3",
+            "text": ""
           }
         },
-        "text_WiXLUy": {
-          "type": "text",
+        "guarantee_hU6LiX": {
+          "type": "guarantee",
           "settings": {
-            "text": "<p>Use only on areas approved on the product label or packaging, and follow all directions provided.</p>",
-            "text_size": "typeset2",
-            "secondary_color": false
+            "icon": "phone",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "title": "24/7 SUPPORT",
+            "title_size": "h3",
+            "text": ""
           }
         }
       },
       "block_order": [
-        "heading_rfMKAy",
-        "text_WiXLUy"
+        "guarantee_C9FjyP",
+        "guarantee_hU6LiX"
       ],
-      "name": "t:sections.image-with-text.presets.name",
+      "name": "t:sections.guarantees.presets.name",
       "settings": {
-        "image": "shopify://shop_images/new_spray.jpg",
-        "image_position": "center center",
-        "layout": "image_first",
-        "text_box_position": "middle",
-        "text_alignment": "left",
-        "image_ratio": "650px",
-        "enlarge_content": false,
+        "layout": "default",
+        "column_alignment": "left",
+        "horizontal_content": false,
         "full_width": false,
         "show_divider": false,
-        "image_behavior": "none",
-        "mobile_layout": "image_first",
-        "mobile_text_alignment": "left",
-        "mobile_image_ratio": "auto",
-        "enable_video_looping": false,
-        "video_url": "",
+        "columns_desktop": 4,
+        "heading": "Guarantees",
+        "heading_size": "h1",
+        "heading_tag": "h2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
         "use_custom_colors": false,
-        "colors_button_label": "#ffffff",
-        "colors_button_background": "#1a1b18",
-        "colors_text": "#212326",
+        "colors_icon": "#ffffff",
+        "colors_text": "#1a1b18",
         "colors_background": "#ffffff",
         "gradient_background": "",
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "blocks_fQ4g9X": {
-      "type": "_blocks",
-      "name": "Benefits table",
-      "settings": {}
     },
     "faq_34DCRE": {
       "type": "faq",
@@ -398,7 +338,32 @@
         "padding_bottom": 36
       }
     },
-    "177833942880a07573": {
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_list_limit": 4,
+        "show_divider": false,
+        "heading": "You May Also Like",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "heading_tag": "h2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
+        "image_position": "center center",
+        "enable_image_fill": true,
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": false,
+        "show_quick_buy": true,
+        "enable_quick_view": true,
+        "enable_color_swatches": true,
+        "enable_countdown": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1771945068374140eb": {
       "type": "apps",
       "settings": {
         "include_margins": true,
@@ -407,54 +372,135 @@
         "padding_bottom": 36
       }
     },
-    "guarantees_Yj7NaV": {
-      "type": "guarantees",
+    "scrolling_promotion_4ay3ka": {
+      "type": "scrolling-promotion",
       "blocks": {
-        "guarantee_C9FjyP": {
-          "type": "guarantee",
+        "announcement_cFWJEW": {
+          "type": "announcement",
           "settings": {
-            "icon": "truck",
+            "icon": "none",
             "icon_size": "medium",
             "custom_icon": "",
-            "title": "DELIVERY ALL OVER LEBANON",
-            "title_size": "h3",
-            "text": ""
-          }
-        },
-        "guarantee_hU6LiX": {
-          "type": "guarantee",
-          "settings": {
-            "icon": "phone",
-            "icon_size": "medium",
-            "custom_icon": "",
-            "title": "24/7 SUPPORT",
-            "title_size": "h3",
-            "text": ""
+            "text": "Smooth skin, confident you",
+            "text_size": 20,
+            "link": ""
           }
         }
       },
       "block_order": [
-        "guarantee_C9FjyP",
-        "guarantee_hU6LiX"
+        "announcement_cFWJEW"
       ],
-      "name": "t:sections.guarantees.presets.name",
+      "disabled": true,
+      "name": "t:sections.scrolling-promotion.presets.name",
       "settings": {
-        "layout": "default",
-        "column_alignment": "left",
-        "horizontal_content": false,
+        "direction": "left",
+        "speed": 1.6,
+        "show_divider": false,
+        "use_custom_colors": true,
+        "colors_icon": "#ffffff",
+        "colors_text": "#ffffff",
+        "colors_background": "#212326",
+        "gradient_background": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "scrolling_promotion_Byn4gN": {
+      "type": "scrolling-promotion",
+      "blocks": {
+        "announcement_Mjd6fW": {
+          "type": "announcement",
+          "settings": {
+            "icon": "none",
+            "icon_size": "medium",
+            "custom_icon": "",
+            "text": "Beauty begins with self-care",
+            "text_size": 20,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_Mjd6fW"
+      ],
+      "disabled": true,
+      "name": "t:sections.scrolling-promotion.presets.name",
+      "settings": {
+        "direction": "left",
+        "speed": 1.6,
+        "show_divider": false,
+        "use_custom_colors": true,
+        "colors_icon": "#ffffff",
+        "colors_text": "#ffffff",
+        "colors_background": "#212326",
+        "gradient_background": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_wwDjX9": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_rfMKAy": {
+          "type": "heading",
+          "settings": {
+            "heading": "Easy Beauty Care at Home",
+            "heading_size": "h1",
+            "heading_tag": "h2"
+          }
+        },
+        "text_WiXLUy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Use only on areas approved on the product label or packaging, and follow all directions provided.</p>",
+            "text_size": "typeset2",
+            "secondary_color": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_rfMKAy",
+        "text_WiXLUy"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/new_spray.jpg",
+        "image_position": "center center",
+        "layout": "image_first",
+        "text_box_position": "middle",
+        "text_alignment": "left",
+        "image_ratio": "650px",
+        "enlarge_content": false,
         "full_width": false,
         "show_divider": false,
-        "columns_desktop": 4,
-        "heading": "Guarantees",
-        "heading_size": "h1",
-        "heading_tag": "h2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
+        "image_behavior": "none",
+        "mobile_layout": "image_first",
+        "mobile_text_alignment": "left",
+        "mobile_image_ratio": "auto",
+        "enable_video_looping": false,
+        "video_url": "",
         "use_custom_colors": false,
-        "colors_icon": "#ffffff",
-        "colors_text": "#1a1b18",
+        "colors_button_label": "#ffffff",
+        "colors_button_background": "#1a1b18",
+        "colors_text": "#212326",
         "colors_background": "#ffffff",
         "gradient_background": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "blocks_fQ4g9X": {
+      "type": "_blocks",
+      "disabled": true,
+      "name": "Benefits table",
+      "settings": {}
+    },
+    "177833942880a07573": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true,
+        "show_divider": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -466,16 +512,17 @@
   },
   "order": [
     "main",
+    "blocks_q6hP4C",
+    "image_with_text_pdWqXR",
+    "guarantees_Yj7NaV",
+    "faq_34DCRE",
     "product-recommendations",
     "1771945068374140eb",
     "scrolling_promotion_4ay3ka",
-    "image_with_text_pdWqXR",
     "scrolling_promotion_Byn4gN",
     "image_with_text_wwDjX9",
     "blocks_fQ4g9X",
-    "faq_34DCRE",
     "177833942880a07573",
-    "guarantees_Yj7NaV",
     "1771850465e38b72c3"
   ]
 }
