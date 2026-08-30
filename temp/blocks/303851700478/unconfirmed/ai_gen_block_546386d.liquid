@@ -1,6 +1,515 @@
+{% doc %}
+  @prompt
+    Create a mobile-friendly one-click offer selector for Hair Removal Spray Foam using product variant ID 48167019741438. Include exactly three clearly separated buttons: 1 Bottle for $16 with customer-paid shipping and quantity 1; 2 Bottles for $32 with free shipping, labeled Most Popular and highlighted by default, with quantity 2; and 3 Bottles for $44 with free shipping, labeled Best Value, with quantity 3. When a customer clicks an offer once, add the exact corresponding quantity and take them directly to Shopify checkout, skipping the cart page. Preserve Shopify checkout compatibility and allow the store’s automatic product and shipping discounts to apply. Prevent duplicate quantities from any existing cart contents. Keep the design consistent with Vlume, accessible, fast, and optimized for mobile. Do not display $43 anywhere. Include editable offer labels and prices, but keep the product variant and quantities correctly connected.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-offer-selector-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    background-color: {{ block.settings.background_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+  }
+
+  .ai-offer-selector__heading-{{ ai_gen_id }} {
+    margin: 0 0 20px;
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.text_color }};
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .ai-offer-selector__options-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .ai-offer-selector__option-{{ ai_gen_id }} {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 16px 20px;
+    background-color: {{ block.settings.option_bg_color }};
+    border: 2px solid {{ block.settings.option_border_color }};
+    border-radius: {{ block.settings.option_border_radius }}px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+  }
+
+  .ai-offer-selector__option-{{ ai_gen_id }}:active {
+    transform: scale(0.98);
+  }
+
+  .ai-offer-selector__option-{{ ai_gen_id }}--highlighted {
+    background-color: {{ block.settings.highlighted_bg_color }};
+    border-color: {{ block.settings.highlighted_border_color }};
+    border-width: 2px;
+  }
+
+  .ai-offer-selector__badge-{{ ai_gen_id }} {
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 4px 12px;
+    background-color: {{ block.settings.badge_bg_color }};
+    color: {{ block.settings.badge_text_color }};
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .ai-offer-selector__option-header-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .ai-offer-selector__quantity-{{ ai_gen_id }} {
+    font-size: {{ block.settings.quantity_size }}px;
+    font-weight: 700;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+  }
+
+  .ai-offer-selector__option-{{ ai_gen_id }}--highlighted .ai-offer-selector__quantity-{{ ai_gen_id }} {
+    color: {{ block.settings.highlighted_text_color }};
+  }
+
+  .ai-offer-selector__price-{{ ai_gen_id }} {
+    font-size: {{ block.settings.price_size }}px;
+    font-weight: 700;
+    color: {{ block.settings.price_color }};
+    margin: 0;
+  }
+
+  .ai-offer-selector__option-{{ ai_gen_id }}--highlighted .ai-offer-selector__price-{{ ai_gen_id }} {
+    color: {{ block.settings.highlighted_price_color }};
+  }
+
+  .ai-offer-selector__shipping-{{ ai_gen_id }} {
+    font-size: {{ block.settings.shipping_size }}px;
+    color: {{ block.settings.shipping_color }};
+    margin: 0;
+  }
+
+  .ai-offer-selector__option-{{ ai_gen_id }}--highlighted .ai-offer-selector__shipping-{{ ai_gen_id }} {
+    color: {{ block.settings.highlighted_shipping_color }};
+  }
+
+  .ai-offer-selector__free-{{ ai_gen_id }} {
+    font-weight: 600;
+  }
+
+  .ai-offer-selector__loading-{{ ai_gen_id }} {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ai-offer-selector-{{ ai_gen_id }} {
+      width: {{ block.settings.desktop_width_percent }}%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+{% endstyle %}
+
+<offer-selector-{{ ai_gen_id }}
+  class="ai-offer-selector-{{ ai_gen_id }}"
+  data-variant-id="48167019741438"
+  {{ block.shopify_attributes }}
+>
+  {% if block.settings.heading != blank %}
+    <h2 class="ai-offer-selector__heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+  {% endif %}
+
+  <div class="ai-offer-selector__options-{{ ai_gen_id }}">
+    <button
+      type="button"
+      class="ai-offer-selector__option-{{ ai_gen_id }}"
+      data-quantity="1"
+      data-offer="1"
+      aria-label="{{ block.settings.offer_1_label }} - {{ block.settings.offer_1_price }} - {{ block.settings.offer_1_shipping }}"
+    >
+      <div class="ai-offer-selector__option-header-{{ ai_gen_id }}">
+        <p class="ai-offer-selector__quantity-{{ ai_gen_id }}">{{ block.settings.offer_1_label }}</p>
+        <p class="ai-offer-selector__price-{{ ai_gen_id }}">{{ block.settings.offer_1_price }}</p>
+      </div>
+      <p class="ai-offer-selector__shipping-{{ ai_gen_id }}">{{ block.settings.offer_1_shipping }}</p>
+    </button>
+
+    <button
+      type="button"
+      class="ai-offer-selector__option-{{ ai_gen_id }} ai-offer-selector__option-{{ ai_gen_id }}--highlighted"
+      data-quantity="2"
+      data-offer="2"
+      aria-label="{{ block.settings.offer_2_label }} - {{ block.settings.offer_2_price }} - {{ block.settings.offer_2_shipping }}"
+    >
+      {% if block.settings.offer_2_badge != blank %}
+        <span class="ai-offer-selector__badge-{{ ai_gen_id }}">{{ block.settings.offer_2_badge }}</span>
+      {% endif %}
+      <div class="ai-offer-selector__option-header-{{ ai_gen_id }}">
+        <p class="ai-offer-selector__quantity-{{ ai_gen_id }}">{{ block.settings.offer_2_label }}</p>
+        <p class="ai-offer-selector__price-{{ ai_gen_id }}">{{ block.settings.offer_2_price }}</p>
+      </div>
+      <p class="ai-offer-selector__shipping-{{ ai_gen_id }} ai-offer-selector__free-{{ ai_gen_id }}">{{ block.settings.offer_2_shipping }}</p>
+    </button>
+
+    <button
+      type="button"
+      class="ai-offer-selector__option-{{ ai_gen_id }}"
+      data-quantity="3"
+      data-offer="3"
+      aria-label="{{ block.settings.offer_3_label }} - {{ block.settings.offer_3_price }} - {{ block.settings.offer_3_shipping }}"
+    >
+      {% if block.settings.offer_3_badge != blank %}
+        <span class="ai-offer-selector__badge-{{ ai_gen_id }}">{{ block.settings.offer_3_badge }}</span>
+      {% endif %}
+      <div class="ai-offer-selector__option-header-{{ ai_gen_id }}">
+        <p class="ai-offer-selector__quantity-{{ ai_gen_id }}">{{ block.settings.offer_3_label }}</p>
+        <p class="ai-offer-selector__price-{{ ai_gen_id }}">{{ block.settings.offer_3_price }}</p>
+      </div>
+      <p class="ai-offer-selector__shipping-{{ ai_gen_id }} ai-offer-selector__free-{{ ai_gen_id }}">{{ block.settings.offer_3_shipping }}</p>
+    </button>
+  </div>
+</offer-selector-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class OfferSelector{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.variantId = this.dataset.variantId;
+        this.isProcessing = false;
+      }
+
+      connectedCallback() {
+        this.buttons = this.querySelectorAll('.ai-offer-selector__option-{{ ai_gen_id }}');
+        this.setupEventListeners();
+      }
+
+      setupEventListeners() {
+        this.buttons.forEach((button) => {
+          button.addEventListener('click', (event) => {
+            if (this.isProcessing) return;
+            this.handleOfferClick(event.currentTarget);
+          });
+        });
+      }
+
+      async handleOfferClick(button) {
+        this.isProcessing = true;
+        this.classList.add('ai-offer-selector__loading-{{ ai_gen_id }}');
+
+        const quantity = parseInt(button.dataset.quantity, 10);
+
+        try {
+          await this.clearCart();
+          await this.addToCart(quantity);
+          window.location.href = '/checkout';
+        } catch (error) {
+          console.error('Checkout error:', error);
+          this.isProcessing = false;
+          this.classList.remove('ai-offer-selector__loading-{{ ai_gen_id }}');
+        }
+      }
+
+      async clearCart() {
+        const response = await fetch('/cart/clear.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to clear cart');
+        }
+      }
+
+      async addToCart(quantity) {
+        const response = await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id: this.variantId,
+            quantity: quantity,
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to add to cart');
+        }
+
+        return response.json();
+      }
+    }
+
+    customElements.define('offer-selector-{{ ai_gen_id }}', OfferSelector{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "One-click offer selector",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Choose your offer"
+    },
+    {
+      "type": "header",
+      "content": "Offer 1"
+    },
+    {
+      "type": "text",
+      "id": "offer_1_label",
+      "label": "Label",
+      "default": "1 Bottle"
+    },
+    {
+      "type": "text",
+      "id": "offer_1_price",
+      "label": "Price",
+      "default": "$16"
+    },
+    {
+      "type": "text",
+      "id": "offer_1_shipping",
+      "label": "Shipping text",
+      "default": "+ Shipping"
+    },
+    {
+      "type": "header",
+      "content": "Offer 2"
+    },
+    {
+      "type": "text",
+      "id": "offer_2_label",
+      "label": "Label",
+      "default": "2 Bottles"
+    },
+    {
+      "type": "text",
+      "id": "offer_2_price",
+      "label": "Price",
+      "default": "$32"
+    },
+    {
+      "type": "text",
+      "id": "offer_2_shipping",
+      "label": "Shipping text",
+      "default": "Free Shipping"
+    },
+    {
+      "type": "text",
+      "id": "offer_2_badge",
+      "label": "Badge text",
+      "default": "Most Popular"
+    },
+    {
+      "type": "header",
+      "content": "Offer 3"
+    },
+    {
+      "type": "text",
+      "id": "offer_3_label",
+      "label": "Label",
+      "default": "3 Bottles"
+    },
+    {
+      "type": "text",
+      "id": "offer_3_price",
+      "label": "Price",
+      "default": "$44"
+    },
+    {
+      "type": "text",
+      "id": "offer_3_shipping",
+      "label": "Shipping text",
+      "default": "Free Shipping"
+    },
+    {
+      "type": "text",
+      "id": "offer_3_badge",
+      "label": "Badge text",
+      "default": "Best Value"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#212326"
+    },
+    {
+      "type": "color",
+      "id": "option_bg_color",
+      "label": "Option background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "option_border_color",
+      "label": "Option border",
+      "default": "#d2d5d9"
+    },
+    {
+      "type": "color",
+      "id": "highlighted_bg_color",
+      "label": "Highlighted background",
+      "default": "#f3f3f3"
+    },
+    {
+      "type": "color",
+      "id": "highlighted_border_color",
+      "label": "Highlighted border",
+      "default": "#212326"
+    },
+    {
+      "type": "color",
+      "id": "highlighted_text_color",
+      "label": "Highlighted text",
+      "default": "#212326"
+    },
+    {
+      "type": "color",
+      "id": "price_color",
+      "label": "Price color",
+      "default": "#1a1b18"
+    },
+    {
+      "type": "color",
+      "id": "highlighted_price_color",
+      "label": "Highlighted price",
+      "default": "#1a1b18"
+    },
+    {
+      "type": "color",
+      "id": "shipping_color",
+      "label": "Shipping color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "highlighted_shipping_color",
+      "label": "Highlighted shipping",
+      "default": "#008060"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg_color",
+      "label": "Badge background",
+      "default": "#d72c0d"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Container border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "option_border_radius",
+      "label": "Option border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 14,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "quantity_size",
+      "label": "Offer label size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "price_size",
+      "label": "Price size",
+      "min": 16,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "shipping_size",
+      "label": "Shipping text size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    }
+  ],
+  "presets": [
+    {
+      "name": "One-click offer selector"
+    }
+  ]
+}
 {% endschema %}
