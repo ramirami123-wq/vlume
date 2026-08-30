@@ -145,44 +145,47 @@
     "1788091668cce86f93": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_3fbc32f_RiXCEA": {
-          "type": "ai_gen_block_3fbc32f",
+        "ai_gen_block_546386d_zrwafW": {
+          "type": "ai_gen_block_546386d",
           "settings": {
-            "option_1_title": "1 Bottle",
-            "option_1_price": "$16",
-            "option_1_shipping": "",
-            "option_2_title": "2 Bottles",
-            "option_2_price": "$32",
-            "option_2_shipping": "Free shipping",
-            "option_2_badge": "Most Popular",
-            "option_2_savings": "",
-            "option_3_title": "3 Bottles",
-            "option_3_price": "$44",
-            "option_3_shipping": "Free shipping",
-            "option_3_badge": "Best Value",
-            "option_3_savings": "Save $4",
+            "heading": "Choose your offer",
+            "offer_1_label": "1 Bottle",
+            "offer_1_price": "$16",
+            "offer_1_shipping": "+ Shipping",
+            "offer_2_label": "2 Bottles",
+            "offer_2_price": "$32",
+            "offer_2_shipping": "Free Shipping",
+            "offer_2_badge": "Most Popular",
+            "offer_3_label": "3 Bottles",
+            "offer_3_price": "$44",
+            "offer_3_shipping": "Free Shipping",
+            "offer_3_badge": "Best Value",
             "desktop_width_percent": 100,
-            "border_radius": 10,
             "background_color": "#ffffff",
-            "border_color": "#d2d5d9",
-            "hover_border_color": "#212326",
-            "selected_border_color": "#212326",
-            "selected_background_color": "#f9f9f9",
-            "highlight_border_color": "#212326",
-            "highlight_background_color": "#f9f9f9",
             "text_color": "#212326",
+            "option_bg_color": "#ffffff",
+            "option_border_color": "#d2d5d9",
+            "highlighted_bg_color": "#f3f3f3",
+            "highlighted_border_color": "#212326",
+            "highlighted_text_color": "#212326",
             "price_color": "#1a1b18",
-            "shipping_text_color": "#666666",
-            "free_shipping_color": "#008060",
-            "savings_color": "#d72c0d",
-            "badge_background_color": "#212326",
-            "badge_text_color": "#ffffff"
+            "highlighted_price_color": "#1a1b18",
+            "shipping_color": "#666666",
+            "highlighted_shipping_color": "#008060",
+            "badge_bg_color": "#d72c0d",
+            "badge_text_color": "#ffffff",
+            "border_radius": 8,
+            "option_border_radius": 12,
+            "heading_size": 20,
+            "quantity_size": 16,
+            "price_size": 20,
+            "shipping_size": 14
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "ai_gen_block_3fbc32f_RiXCEA"
+        "ai_gen_block_546386d_zrwafW"
       ],
       "settings": {}
     },
@@ -457,6 +460,10 @@
         "ai_gen_block_9a15ed2_rWJ9nU"
       ],
       "settings": {}
+    },
+    "1788101353c73fc74b": {
+      "type": "_blocks",
+      "settings": {}
     }
   },
   "order": [
@@ -469,6 +476,7 @@
     "rich_text_iPTEGL",
     "scrolling_promotion_yJEgih",
     "1788097659d65c6754",
-    "17880981913ba44e8a"
+    "17880981913ba44e8a",
+    "1788101353c73fc74b"
   ]
 }
