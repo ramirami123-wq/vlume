@@ -14,7 +14,7 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "show_divider": true,
+        "show_divider": false,
         "newsletter_enable": false,
         "newsletter_heading": "",
         "newsletter_text": "",

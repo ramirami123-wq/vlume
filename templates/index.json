@@ -244,36 +244,36 @@
         "question_yNkDQY": {
           "type": "question",
           "settings": {
-            "title": "How long should I leave it on?",
-            "text": "<p>Follow the application time and directions printed on the product label or packaging.</p>"
+            "title": "How do I use the Hair Removal Spray Foam?",
+            "text": "<p>Spray the product evenly onto the desired body area. Leave it on for 10–15 minutes, gently wipe away the hair with a tissue, then rinse the area thoroughly with water.</p>"
           }
         },
         "question_YmRBPG": {
           "type": "question",
           "settings": {
-            "title": "Is it suitable for sensitive skin?",
-            "text": "<p>Check the product label or packaging for suitability and directions. If you are unsure, consult a qualified healthcare professional before use.</p>"
+            "title": "How long should I leave the foam on?",
+            "text": "<p>Leave the foam on for 10–15 minutes before wiping away the hair and rinsing the area thoroughly with water.</p>"
           }
         },
         "question_9WMfD8": {
           "type": "question",
           "settings": {
-            "title": "Which body areas can I use it on?",
-            "text": "<p>Use the product only on the body areas listed on the product label or packaging, and follow those directions.</p>"
+            "title": "Which areas of the body can I use it on?",
+            "text": "<p>The product can be used on body areas where hair removal is desired. Do not use it on the face.</p>"
           }
         },
         "question_DTN4JM": {
           "type": "question",
           "settings": {
-            "title": "How long does delivery take?",
-            "text": "<p>Delivery usually takes <strong>3–5 business days</strong> depending on your location.</p>"
+            "title": "Is it suitable for sensitive skin?",
+            "text": "<p>Yes. The product is suitable for all skin types, including sensitive skin.</p>"
           }
         },
         "question_BcbDMp": {
           "type": "question",
           "settings": {
-            "title": "What is the return policy?",
-            "text": "<p>Please review the store’s published return policy for the current terms and eligibility.</p>"
+            "title": "How should I remove the product?",
+            "text": "<p>Gently wipe away the product and hair with a tissue, then rinse the area thoroughly with water.</p>"
           }
         }
       },
@@ -423,7 +423,7 @@
             "before_label": "Before",
             "after_image": "shopify://shop_images/wtsp_2_32ba2f0a-22d2-4888-85f4-d09d5f8200c6.jpg",
             "after_label": "After",
-            "disclaimer": "<strong>Effortless hair removal. Real results</strong>",
+            "disclaimer": "<strong>Individual results may vary.</strong>",
             "desktop_width_percent": 100,
             "max_content_width": 800,
             "padding": 40,
