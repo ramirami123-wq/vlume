@@ -1,6 +1,260 @@
+{% doc %}
+  @prompt
+    Create a polished, mobile-first social-proof strip for the product page, placed directly under the product photo/gallery. Make it visually similar to the attached reference: a lightly bordered rounded rectangle, a row of five small overlapping circular customer/avatar images on the left, and text on the right that says “Lina, Noor and 200+ others love our products!”. Make the names, number, message, border/background styling, and all five avatar images editable in the theme editor, so the merchant can change the pictures later. Match the store’s existing typography and spacing, keep it compact on mobile, and make it available as a block that can be positioned beneath the product media. Use the attached reference screenshot as visual inspiration: https://sidekick.shopify.ai/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzU1OTkyNTc0NiwicHVyIjoiYmxvYl9pZCJ9fQ==--2c3bf52dbcceabca072731e9dc394efedc76efab/111.jpeg
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-social-proof-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .ai-social-proof-{{ ai_gen_id }}__inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 64px;
+    padding: 10px 14px;
+    box-sizing: border-box;
+    border: {{ block.settings.border_width }}px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.corner_radius }}px;
+    background: {{ block.settings.background_color }};
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-social-proof-{{ ai_gen_id }}__avatars {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    padding-left: 7px;
+  }
+
+  .ai-social-proof-{{ ai_gen_id }}__avatar {
+    position: relative;
+    width: {{ block.settings.avatar_size }}px;
+    height: {{ block.settings.avatar_size }}px;
+    margin-left: -7px;
+    overflow: hidden;
+    border: 2px solid {{ block.settings.background_color }};
+    border-radius: 50%;
+    background: {{ block.settings.placeholder_color }};
+    box-sizing: border-box;
+  }
+
+  .ai-social-proof-{{ ai_gen_id }}__avatar img,
+  .ai-social-proof-{{ ai_gen_id }}__avatar svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-social-proof-{{ ai_gen_id }}__avatar svg {
+    color: {{ block.settings.placeholder_icon_color }};
+  }
+
+  .ai-social-proof-{{ ai_gen_id }}__message {
+    margin: 0;
+    font-family: inherit;
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+
+  .ai-social-proof-{{ ai_gen_id }}__names {
+    font-weight: 600;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-social-proof-{{ ai_gen_id }}__inner {
+      min-height: 58px;
+      gap: 9px;
+      padding: 8px 10px;
+    }
+
+    .ai-social-proof-{{ ai_gen_id }}__message {
+      font-size: {{ block.settings.mobile_text_size }}px;
+    }
+  }
+{% endstyle %}
+
+<social-proof-strip-{{ ai_gen_id }} class="ai-social-proof-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-social-proof-{{ ai_gen_id }}__inner">
+    <div class="ai-social-proof-{{ ai_gen_id }}__avatars" aria-hidden="true">
+      {% for i in (1..5) %}
+        {% liquid
+          assign avatar_key = 'avatar_' | append: i
+          assign avatar = block.settings[avatar_key]
+        %}
+        <span class="ai-social-proof-{{ ai_gen_id }}__avatar">
+          {% if avatar != blank %}
+            <img src="{{ avatar | image_url: width: 120 }}" alt="" width="120" height="120" loading="lazy">
+          {% else %}
+            {{ 'image' | placeholder_svg_tag }}
+          {% endif %}
+        </span>
+      {% endfor %}
+    </div>
+    <p class="ai-social-proof-{{ ai_gen_id }}__message">
+      <span class="ai-social-proof-{{ ai_gen_id }}__names">{{ block.settings.names | escape }}</span> {{ block.settings.message | escape }}
+    </p>
+  </div>
+</social-proof-strip-{{ ai_gen_id }}>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Social proof strip",
+  "tag": null,
+  "class": "social-proof-block",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "names",
+      "label": "Names",
+      "default": "Lina, Noor and 200+ others"
+    },
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Message",
+      "default": "love our products!"
+    },
+    {
+      "type": "header",
+      "content": "Customer images"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_1",
+      "label": "Avatar 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_2",
+      "label": "Avatar 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_3",
+      "label": "Avatar 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_4",
+      "label": "Avatar 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_5",
+      "label": "Avatar 5"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "avatar_size",
+      "label": "Avatar size",
+      "min": 24,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 11,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "mobile_text_size",
+      "label": "Mobile text size",
+      "min": 11,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "label": "Border width",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "corner_radius",
+      "label": "Corner radius",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border",
+      "default": "#d2d5d9"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#212326"
+    },
+    {
+      "type": "color",
+      "id": "placeholder_color",
+      "label": "Avatar placeholder",
+      "default": "#f3f3f3"
+    },
+    {
+      "type": "color",
+      "id": "placeholder_icon_color",
+      "label": "Placeholder icon",
+      "default": "#777777"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Social proof strip"
+    }
+  ]
+}
 {% endschema %}
