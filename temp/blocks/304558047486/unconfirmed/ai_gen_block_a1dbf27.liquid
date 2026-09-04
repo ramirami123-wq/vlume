@@ -1,6 +1,409 @@
+{% doc %}
+  @prompt
+    Create a customizable social-proof block for the Hair Removal Spray Foam product page. On mobile, place it directly between the product title/name and the product photo/media gallery. On desktop, place it in the closest equivalent position in the product information layout. Use a compact rounded bordered strip with five overlapping circular avatar images and editable text reading “Lina, Noor and 200+ others love our products!”. Make the names, 200+ number, message, five images, colors, border, and spacing editable in the theme editor. The block must be movable within the product page and should not alter the product title, product images, or purchase controls.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-social-proof-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin-top: {{ block.settings.margin_top }}px;
+    margin-bottom: {{ block.settings.margin_bottom }}px;
+  }
+
+  .ai-social-proof-{{ ai_gen_id }}__strip {
+    display: flex;
+    align-items: center;
+    gap: {{ block.settings.content_gap }}px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: {{ block.settings.vertical_padding }}px {{ block.settings.horizontal_padding }}px;
+    border: {{ block.settings.border_width }}px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.corner_radius }}px;
+    background: {{ block.settings.background_color }};
+    color: {{ block.settings.text_color }};
+  }
+
+  .ai-social-proof-{{ ai_gen_id }}__avatars {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    padding-left: {{ block.settings.overlap }}px;
+  }
+
+  .ai-social-proof-{{ ai_gen_id }}__avatar,
+  .ai-social-proof-{{ ai_gen_id }}__placeholder {
+    position: relative;
+    width: {{ block.settings.avatar_size }}px;
+    height: {{ block.settings.avatar_size }}px;
+    flex: 0 0 {{ block.settings.avatar_size }}px;
+    overflow: hidden;
+    margin-left: -{{ block.settings.overlap }}px;
+    border: {{ block.settings.avatar_border_width }}px solid {{ block.settings.avatar_border_color }};
+    border-radius: 50%;
+    background: {{ block.settings.placeholder_color }};
+    box-sizing: content-box;
+  }
+
+  .ai-social-proof-{{ ai_gen_id }}__avatar img,
+  .ai-social-proof-{{ ai_gen_id }}__placeholder svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-social-proof-{{ ai_gen_id }}__placeholder svg {
+    color: {{ block.settings.placeholder_icon_color }};
+  }
+
+  .ai-social-proof-{{ ai_gen_id }}__message {
+    min-width: 0;
+    margin: 0;
+    font-family: {{ settings.type_body_font.family }}, sans-serif;
+    font-size: {{ block.settings.text_size }}px;
+    line-height: 1.35;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .ai-social-proof-{{ ai_gen_id }}__name,
+  .ai-social-proof-{{ ai_gen_id }}__count {
+    color: {{ block.settings.highlight_color }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-social-proof-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-social-proof-{{ ai_gen_id }}__strip {
+      padding: {{ block.settings.mobile_vertical_padding }}px {{ block.settings.mobile_horizontal_padding }}px;
+    }
+
+    .ai-social-proof-{{ ai_gen_id }}__message {
+      font-size: {{ block.settings.mobile_text_size }}px;
+    }
+  }
+{% endstyle %}
+
+<social-proof-{{ ai_gen_id }} class="ai-social-proof-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-social-proof-{{ ai_gen_id }}__strip" role="note" aria-label="{{ block.settings.name_one | escape }}, {{ block.settings.name_two | escape }} and {{ block.settings.people_count | escape }} {{ block.settings.message | escape }}">
+    <div class="ai-social-proof-{{ ai_gen_id }}__avatars" aria-hidden="true">
+      {% for i in (1..5) %}
+        {% liquid
+          assign image_key = 'avatar_' | append: i
+          assign avatar = block.settings[image_key]
+        %}
+        {% if avatar != blank %}
+          <div class="ai-social-proof-{{ ai_gen_id }}__avatar">
+            <img src="{{ avatar | image_url: width: 120 }}" alt="" loading="lazy" width="{{ block.settings.avatar_size }}" height="{{ block.settings.avatar_size }}">
+          </div>
+        {% else %}
+          <div class="ai-social-proof-{{ ai_gen_id }}__placeholder">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <p class="ai-social-proof-{{ ai_gen_id }}__message">
+      <span class="ai-social-proof-{{ ai_gen_id }}__name">{{ block.settings.name_one | escape }}, {{ block.settings.name_two | escape }}</span>
+      {{ block.settings.connector | escape }}
+      <span class="ai-social-proof-{{ ai_gen_id }}__count">{{ block.settings.people_count | escape }}</span>
+      {{ block.settings.message | escape }}
+    </p>
+  </div>
+</social-proof-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class SocialProof{{ ai_gen_id }} extends HTMLElement {
+      connectedCallback() {
+        this.setAttribute('data-social-proof-ready', 'true');
+      }
+    }
+    if (!customElements.get('social-proof-{{ ai_gen_id }}')) {
+      customElements.define('social-proof-{{ ai_gen_id }}', SocialProof{{ ai_gen_id }});
+    }
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Social proof strip",
+  "tag": null,
+  "class": "social-proof-block",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "name_one",
+      "label": "First name",
+      "default": "Lina"
+    },
+    {
+      "type": "text",
+      "id": "name_two",
+      "label": "Second name",
+      "default": "Noor"
+    },
+    {
+      "type": "text",
+      "id": "connector",
+      "label": "Connector",
+      "default": "and"
+    },
+    {
+      "type": "text",
+      "id": "people_count",
+      "label": "People count",
+      "default": "200+"
+    },
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Message",
+      "default": "others love our products!"
+    },
+    {
+      "type": "header",
+      "content": "Avatars"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_1",
+      "label": "Avatar 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_2",
+      "label": "Avatar 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_3",
+      "label": "Avatar 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_4",
+      "label": "Avatar 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_5",
+      "label": "Avatar 5"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#212326"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlights",
+      "default": "#1a1b18"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border",
+      "default": "#d2d5d9"
+    },
+    {
+      "type": "color",
+      "id": "avatar_border_color",
+      "label": "Avatar border",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "placeholder_color",
+      "label": "Placeholder",
+      "default": "#f3f3f3"
+    },
+    {
+      "type": "color",
+      "id": "placeholder_icon_color",
+      "label": "Placeholder icon",
+      "default": "#777777"
+    },
+    {
+      "type": "header",
+      "content": "Spacing and size"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "avatar_size",
+      "label": "Avatar size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "overlap",
+      "label": "Avatar overlap",
+      "min": 2,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "Content gap",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "label": "Border width",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "avatar_border_width",
+      "label": "Avatar border width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "corner_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "vertical_padding",
+      "label": "Vertical padding",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "horizontal_padding",
+      "label": "Horizontal padding",
+      "min": 6,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "mobile_text_size",
+      "label": "Mobile text size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "mobile_vertical_padding",
+      "label": "Mobile vertical padding",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "mobile_horizontal_padding",
+      "label": "Mobile horizontal padding",
+      "min": 6,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Social proof strip"
+    }
+  ]
+}
 {% endschema %}
