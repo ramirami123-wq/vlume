@@ -59,94 +59,70 @@
         "padding_bottom": 36
       }
     },
-    "featured_product_49HNMP": {
-      "type": "featured-product",
+    "17885536642d194066": {
+      "type": "_blocks",
       "blocks": {
-        "title_bPxNy8": {
-          "type": "title",
+        "ai_gen_block_8f65fb4_MhDrgM": {
+          "type": "ai_gen_block_8f65fb4",
           "settings": {
-            "title_size": "h2",
-            "title_tag": "h2",
-            "show_price": true,
-            "price_size": "medium"
-          }
-        },
-        "rating_NUzrmk": {
-          "type": "rating",
-          "disabled": true,
-          "settings": {}
-        },
-        "countdown_fDtWJa": {
-          "type": "countdown",
-          "disabled": true,
-          "settings": {
-            "heading": "Hurry up ! Sale end in:",
-            "number_size": "compact",
-            "colors_heading": "#da3f3f",
-            "colors_text": "#da3f3f",
-            "colors_background": "#feeeee"
-          }
-        },
-        "price_mhBnUM": {
-          "type": "price",
-          "settings": {
-            "price_size": "medium",
-            "show_badges": true,
-            "sale_badge_basis": "auto"
-          }
-        },
-        "variant_picker_KiHTjA": {
-          "type": "variant_picker",
-          "settings": {
-            "show_variant_labels": true,
-            "picker_type": "button",
-            "enable_color_swatches": true,
-            "swatches_source": "file",
-            "swatch_type": "round",
-            "enable_swatch_cross": true,
-            "enable_swatch_unavailable_click": false,
-            "size_chart": ""
-          }
-        },
-        "buy_buttons_XEGyyn": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_quantity_selector": true,
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": false
-          }
+            "product": "hair-removal-spray-foam",
+            "desktop_width_percent": 100,
+            "button_label": "Shop now",
+            "proof_message": "Lina, Elias, Ahmad and 200+ others love our products!",
+            "proof_name_1": "Lina",
+            "proof_name_2": "Noor",
+            "proof_number": "200+",
+            "avatar_1": "shopify://shop_images/images.jpg",
+            "avatar_1_name": "Lina",
+            "avatar_2": "shopify://shop_images/images_1.jpg",
+            "avatar_2_name": "Noor",
+            "avatar_3": "shopify://shop_images/images_2.jpg",
+            "avatar_3_name": "Maya",
+            "avatar_4_name": "Sara",
+            "avatar_5_name": "Rita",
+            "benefit_1": "Premium quality ingredients",
+            "benefit_2": "Suitable for all skin types",
+            "benefit_3": "Loved by our community",
+            "heading_color": "#1a1b18",
+            "text_color": "#212326",
+            "accent_color": "#1a1b18",
+            "image_background": "#f3f3f3",
+            "muted_color": "#5c6166",
+            "proof_border_color": "#d2d5d9",
+            "proof_background_color": "#ffffff",
+            "proof_text_color": "#212326",
+            "benefit_background_color": "#f3f3f3",
+            "benefit_text_color": "#212326",
+            "benefit_icon_background": "#1a1b18",
+            "benefit_icon_color": "#ffffff",
+            "button_background": "#212326",
+            "button_text_color": "#ffffff",
+            "focus_color": "#87adf5",
+            "heading_font": "cabin_n4",
+            "body_font": "outfit_n3",
+            "proof_radius": 14,
+            "benefit_radius": 14,
+            "button_radius": 10,
+            "image_radius": 14,
+            "thumbnail_radius": 8,
+            "thumbnail_size": 72,
+            "thumbnail_gap": 8,
+            "avatar_size": 30
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "title_bPxNy8",
-        "rating_NUzrmk",
-        "countdown_fDtWJa",
-        "price_mhBnUM",
-        "variant_picker_KiHTjA",
-        "buy_buttons_XEGyyn"
+        "ai_gen_block_8f65fb4_MhDrgM"
       ],
-      "name": "t:sections.featured-product.presets.name",
-      "settings": {
-        "product": "hair-removal-spray-foam",
-        "layout": "media_first",
-        "full_width": false,
-        "show_divider": false,
-        "show_featured_media": false,
-        "hide_variants": false,
-        "enable_image_zoom": true,
-        "enable_video_looping": false,
-        "image_ratio": "adapt_first",
-        "image_position": "center center",
-        "enable_layered_images": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+      "settings": {}
     },
     "1788091668cce86f93": {
       "type": "_blocks",
       "blocks": {
         "ai_gen_block_546386d_zrwafW": {
           "type": "ai_gen_block_546386d",
+          "disabled": true,
           "settings": {
             "heading": "Choose your offer",
             "offer_1_label": "1 Bottle",
@@ -240,6 +216,52 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "17880981913ba44e8a": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_9a15ed2_rWJ9nU": {
+          "type": "ai_gen_block_9a15ed2",
+          "settings": {
+            "heading": "VLUME RESULTS",
+            "before_image": "shopify://shop_images/WhatsApp_Image_2026-08-30_at_3.24.48_PM.jpg",
+            "before_label": "Before",
+            "after_image": "shopify://shop_images/wtsp_2_32ba2f0a-22d2-4888-85f4-d09d5f8200c6.jpg",
+            "after_label": "After",
+            "disclaimer": "<strong>Individual results may vary.</strong>",
+            "desktop_width_percent": 100,
+            "max_content_width": 800,
+            "padding": 40,
+            "horizontal_padding": 20,
+            "mobile_horizontal_padding": 15,
+            "image_gap": 20,
+            "heading_spacing": 30,
+            "disclaimer_spacing": 20,
+            "border_radius": 8,
+            "image_background": "#f3f3f3",
+            "label_position_vertical": 15,
+            "label_position_horizontal": 15,
+            "label_font_size": 14,
+            "label_font_weight": "600",
+            "label_text_transform": "uppercase",
+            "label_padding_vertical": 6,
+            "label_padding_horizontal": 12,
+            "label_border_radius": 4,
+            "label_background": "#212326",
+            "label_color": "#ffffff",
+            "background_color": "#ffffff",
+            "heading_color": "#1a1b18",
+            "heading_size": 32,
+            "disclaimer_color": "#666666",
+            "disclaimer_font_size": 12
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_9a15ed2_rWJ9nU"
+      ],
+      "settings": {}
     },
     "faq_VkHiGm": {
       "type": "faq",
@@ -415,68 +437,27 @@
       "type": "_blocks",
       "settings": {}
     },
-    "17880981913ba44e8a": {
+    "1788101353c73fc74b": {
       "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_9a15ed2_rWJ9nU": {
-          "type": "ai_gen_block_9a15ed2",
-          "settings": {
-            "heading": "VLUME RESULTS",
-            "before_image": "shopify://shop_images/WhatsApp_Image_2026-08-30_at_3.24.48_PM.jpg",
-            "before_label": "Before",
-            "after_image": "shopify://shop_images/wtsp_2_32ba2f0a-22d2-4888-85f4-d09d5f8200c6.jpg",
-            "after_label": "After",
-            "disclaimer": "<strong>Individual results may vary.</strong>",
-            "desktop_width_percent": 100,
-            "max_content_width": 800,
-            "padding": 40,
-            "horizontal_padding": 20,
-            "mobile_horizontal_padding": 15,
-            "image_gap": 20,
-            "heading_spacing": 30,
-            "disclaimer_spacing": 20,
-            "border_radius": 8,
-            "image_background": "#f3f3f3",
-            "label_position_vertical": 15,
-            "label_position_horizontal": 15,
-            "label_font_size": 14,
-            "label_font_weight": "600",
-            "label_text_transform": "uppercase",
-            "label_padding_vertical": 6,
-            "label_padding_horizontal": 12,
-            "label_border_radius": 4,
-            "label_background": "#212326",
-            "label_color": "#ffffff",
-            "background_color": "#ffffff",
-            "heading_color": "#1a1b18",
-            "heading_size": 32,
-            "disclaimer_color": "#666666",
-            "disclaimer_font_size": 12
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_9a15ed2_rWJ9nU"
-      ],
       "settings": {}
     },
-    "1788101353c73fc74b": {
+    "178855339014ba19ba": {
       "type": "_blocks",
       "settings": {}
     }
   },
   "order": [
     "slideshow",
-    "featured_product_49HNMP",
+    "17885536642d194066",
     "1788091668cce86f93",
     "guarantees_QbnCCW",
+    "17880981913ba44e8a",
     "faq_VkHiGm",
     "scrolling_promotion_gqQrxK",
     "rich_text_iPTEGL",
     "scrolling_promotion_yJEgih",
     "1788097659d65c6754",
-    "17880981913ba44e8a",
-    "1788101353c73fc74b"
+    "1788101353c73fc74b",
+    "178855339014ba19ba"
   ]
 }

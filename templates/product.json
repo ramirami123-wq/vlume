@@ -22,7 +22,7 @@
         "title": {
           "type": "title",
           "settings": {
-            "title_size": "h2",
+            "title_size": "h1",
             "show_price": false,
             "price_size": "medium"
           }
@@ -35,7 +35,7 @@
         "price": {
           "type": "price",
           "settings": {
-            "price_size": "medium",
+            "price_size": "large",
             "show_badges": true,
             "sale_badge_basis": "auto"
           }
@@ -117,8 +117,8 @@
       "settings": {
         "enable_sticky_info": true,
         "media_position": "left",
-        "media_size": "medium",
-        "gallery_layout": "thumbnail_slider",
+        "media_size": "large",
+        "gallery_layout": "columns",
         "image_ratio": "adapt",
         "show_featured_media": true,
         "show_thumbnails": true,
