@@ -27,11 +27,6 @@
             "price_size": "medium"
           }
         },
-        "rating": {
-          "type": "rating",
-          "disabled": true,
-          "settings": {}
-        },
         "price": {
           "type": "price",
           "settings": {
@@ -89,6 +84,11 @@
             "show_quantity_selector": false
           }
         },
+        "rating": {
+          "type": "rating",
+          "disabled": true,
+          "settings": {}
+        },
         "collapsible_description_mFEEde": {
           "type": "collapsible_description",
           "settings": {
@@ -101,7 +101,6 @@
       "block_order": [
         "custom_liquid_Q4eMAn",
         "title",
-        "rating",
         "price",
         "custom_liquid_TJV3Ri",
         "custom_liquid_H9DXEK",
@@ -109,6 +108,7 @@
         "buy_buttons",
         "related_buttons",
         "sticky_cart",
+        "rating",
         "collapsible_description_mFEEde"
       ],
       "custom_css": [
