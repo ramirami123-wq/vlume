@@ -1,6 +1,131 @@
+{% doc %}
+  @prompt
+    Create a mobile-friendly one-click offer selector for Hair Removal Spray Foam using product variant ID 48167019741438. Include exactly three clearly separated buttons: 1 Bottle for $16 with customer-paid shipping and quantity 1; 2 Bottles for $32 with free shipping, labeled Most Popular and highlighted by default, with quantity 2; and 3 Bottles for $44 with free shipping and the supporting sentence “Get your 3rd bottle for only $12 — stock up and save more.”, labeled Best Value, with quantity 3. When a customer clicks an offer once, add the exact corresponding quantity and take them directly to Shopify checkout, skipping the cart page. Preserve Shopify checkout compatibility and allow the store’s automatic product and shipping discounts to apply. Prevent duplicate quantities from any existing cart contents. Keep the design consistent with Vlume, accessible, fast, and optimized for mobile. Do not display $43 anywhere. Include editable offer labels and prices, but keep the product variant and quantities correctly connected.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-offer-selector-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    font-family: inherit;
+    color: #212326;
+  }
+  .ai-offer-selector-{{ ai_gen_id }}__offers { display: grid; gap: 12px; }
+  .ai-offer-selector-{{ ai_gen_id }}__offer {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 76px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid #aeb3b8;
+    border-radius: 10px;
+    background: #fff;
+    color: #212326;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+  }
+  .ai-offer-selector-{{ ai_gen_id }}__offer[aria-pressed="true"] {
+    border: 2px solid #212326;
+    background: #f3f3f3;
+    box-shadow: 0 0 0 2px rgba(33, 35, 38, .08);
+  }
+  .ai-offer-selector-{{ ai_gen_id }}__offer:focus-visible { outline: 3px solid #2458a6; outline-offset: 3px; }
+  .ai-offer-selector-{{ ai_gen_id }}__details { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+  .ai-offer-selector-{{ ai_gen_id }}__label { font-weight: 700; font-size: 16px; line-height: 1.25; }
+  .ai-offer-selector-{{ ai_gen_id }}__note { color: #45494d; font-size: 14px; line-height: 1.35; }
+  .ai-offer-selector-{{ ai_gen_id }}__price { flex-shrink: 0; font-weight: 700; font-size: 18px; white-space: nowrap; }
+  .ai-offer-selector-{{ ai_gen_id }}__badge { position: absolute; top: -10px; right: 12px; padding: 3px 9px; border-radius: 20px; background: #212326; color: #fff; font-size: 12px; font-weight: 700; line-height: 1.4; }
+  .ai-offer-selector-{{ ai_gen_id }}__offer[aria-busy="true"] { opacity: .7; cursor: wait; }
+  .ai-offer-selector-{{ ai_gen_id }}__error { margin: 12px 0 0; color: #a1281c; font-size: 14px; }
+  @media (max-width: 520px) {
+    .ai-offer-selector-{{ ai_gen_id }} { width: 100%; }
+    .ai-offer-selector-{{ ai_gen_id }}__offer { min-height: 72px; padding: 14px 12px; }
+    .ai-offer-selector-{{ ai_gen_id }}__label { font-size: 15px; }
+    .ai-offer-selector-{{ ai_gen_id }}__note { font-size: 13px; }
+    .ai-offer-selector-{{ ai_gen_id }}__price { font-size: 17px; }
+  }
+{% endstyle %}
+
+<offer-selector-{{ ai_gen_id }} class="ai-offer-selector-{{ ai_gen_id }}" data-variant-id="48167019741438" data-error-message="{{ block.settings.error_message | escape }}" {{ block.shopify_attributes }}>
+  <div class="ai-offer-selector-{{ ai_gen_id }}__offers" role="group" aria-label="Choose your bottle offer">
+    <button type="button" class="ai-offer-selector-{{ ai_gen_id }}__offer" data-quantity="1" aria-pressed="false">
+      <span class="ai-offer-selector-{{ ai_gen_id }}__details"><span class="ai-offer-selector-{{ ai_gen_id }}__label">{{ block.settings.offer_one_label | escape }}</span><span class="ai-offer-selector-{{ ai_gen_id }}__note">Customer-paid shipping</span></span>
+      <span class="ai-offer-selector-{{ ai_gen_id }}__price">${{ block.settings.offer_one_price | escape }}</span>
+    </button>
+    <button type="button" class="ai-offer-selector-{{ ai_gen_id }}__offer" data-quantity="2" aria-pressed="true">
+      <span class="ai-offer-selector-{{ ai_gen_id }}__badge">Most Popular</span>
+      <span class="ai-offer-selector-{{ ai_gen_id }}__details"><span class="ai-offer-selector-{{ ai_gen_id }}__label">{{ block.settings.offer_two_label | escape }}</span><span class="ai-offer-selector-{{ ai_gen_id }}__note">Free shipping</span></span>
+      <span class="ai-offer-selector-{{ ai_gen_id }}__price">${{ block.settings.offer_two_price | escape }}</span>
+    </button>
+    <button type="button" class="ai-offer-selector-{{ ai_gen_id }}__offer" data-quantity="3" aria-pressed="false">
+      <span class="ai-offer-selector-{{ ai_gen_id }}__badge">Best Value</span>
+      <span class="ai-offer-selector-{{ ai_gen_id }}__details"><span class="ai-offer-selector-{{ ai_gen_id }}__label">{{ block.settings.offer_three_label | escape }}</span><span class="ai-offer-selector-{{ ai_gen_id }}__note">Free shipping</span><span class="ai-offer-selector-{{ ai_gen_id }}__note">Get your 3rd bottle for only $12 — stock up and save more.</span></span>
+      <span class="ai-offer-selector-{{ ai_gen_id }}__price">${{ block.settings.offer_three_price | escape }}</span>
+    </button>
+  </div>
+  <p class="ai-offer-selector-{{ ai_gen_id }}__error" role="alert" hidden></p>
+</offer-selector-{{ ai_gen_id }}>
+
+<script>
+  (() => {
+    const tagName = 'offer-selector-{{ ai_gen_id }}';
+    if (customElements.get(tagName)) return;
+    class OfferSelector extends HTMLElement {
+      connectedCallback() {
+        this.buttons = this.querySelectorAll('button[data-quantity]');
+        this.error = this.querySelector('[role="alert"]');
+        this.buttons.forEach((button) => button.addEventListener('click', () => this.checkout(button)));
+      }
+      async checkout(button) {
+        if (this.busy) return;
+        this.busy = true;
+        this.error.hidden = true;
+        this.buttons.forEach((item) => { item.disabled = true; item.setAttribute('aria-busy', 'true'); });
+        try {
+          const response = await fetch(`${window.Shopify?.routes?.root || '/'}cart/clear.js`, {
+            method: 'POST', headers: { 'Accept': 'application/json' }
+          });
+          if (!response.ok) throw new Error('clear');
+          const addResponse = await fetch(`${window.Shopify?.routes?.root || '/'}cart/add.js`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ items: [{ id: Number(this.dataset.variantId), quantity: Number(button.dataset.quantity) }] })
+          });
+          if (!addResponse.ok) throw new Error('add');
+          window.location.assign(`${window.Shopify?.routes?.root || '/'}checkout`);
+        } catch (error) {
+          this.error.textContent = this.dataset.errorMessage;
+          this.error.hidden = false;
+          this.busy = false;
+          this.buttons.forEach((item) => { item.disabled = false; item.removeAttribute('aria-busy'); });
+        }
+      }
+    }
+    customElements.define(tagName, OfferSelector);
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Bottle offer selector",
+  "settings": [
+    { "type": "header", "content": "Offer labels and prices" },
+    { "type": "text", "id": "offer_one_label", "label": "1-bottle label", "default": "1 Bottle" },
+    { "type": "text", "id": "offer_one_price", "label": "1-bottle price", "default": "16" },
+    { "type": "text", "id": "offer_two_label", "label": "2-bottle label", "default": "2 Bottles" },
+    { "type": "text", "id": "offer_two_price", "label": "2-bottle price", "default": "32" },
+    { "type": "text", "id": "offer_three_label", "label": "3-bottle label", "default": "3 Bottles" },
+    { "type": "text", "id": "offer_three_price", "label": "3-bottle price", "default": "44" },
+    { "type": "text", "id": "error_message", "label": "Checkout error message", "default": "We couldn't prepare your offer. Please try again." },
+    { "type": "range", "id": "desktop_width_percent", "label": "Desktop width", "min": 50, "max": 100, "step": 5, "unit": "%", "default": 100 }
+  ],
+  "presets": [{ "name": "Bottle offer selector" }],
+  "tag": null,
+  "class": "bottle-offer-selector"
+}
 {% endschema %}
