@@ -1,6 +1,233 @@
+{% doc %}
+  @prompt
+    Create a new copy of the existing Vlume one-click offer selector for Hair Removal Spray Foam. Keep the same visual style, colors, typography, spacing, button treatment, offer units, and one-click checkout behavior as the current selector. Keep these offers unchanged: 1 Bottle for $16 with customer-paid shipping and quantity 1; 2 Bottles for $32 with free shipping and quantity 2, labeled Most Popular and highlighted by default. Edit only the third offer to: 3 Bottles for $44 with free shipping and quantity 3, labeled Best Value, with the supporting sentence “Get your 3rd bottle for only $12 — stock up and save more.” Use product variant ID 48167019741438, prevent duplicate quantities from existing cart contents, go directly to Shopify checkout, and allow automatic product and shipping discounts to apply. Do not display $43 anywhere. Make the labels and prices editable while keeping the quantities and product connection correct. Generate it as a replacement block that can be placed where the current offer selector is used.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-vlume-offers-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    color: #212326;
+    font-family: inherit;
+  }
+
+  .ai-vlume-offers-{{ ai_gen_id }}__list {
+    display: grid;
+    gap: 12px;
+  }
+
+  .ai-vlume-offers-{{ ai_gen_id }}__option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 16px 18px;
+    color: #212326;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #d2d5d9;
+    border-radius: 10px;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  .ai-vlume-offers-{{ ai_gen_id }}__option[aria-pressed="true"] {
+    border: 2px solid #212326;
+    padding: 15px 17px;
+    background: #f7f8f6;
+  }
+
+  .ai-vlume-offers-{{ ai_gen_id }}__radio {
+    flex: 0 0 19px;
+    width: 19px;
+    height: 19px;
+    border: 1px solid #70757a;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .ai-vlume-offers-{{ ai_gen_id }}__option[aria-pressed="true"] .ai-vlume-offers-{{ ai_gen_id }}__radio::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: #212326;
+    border-radius: 50%;
+  }
+
+  .ai-vlume-offers-{{ ai_gen_id }}__details {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .ai-vlume-offers-{{ ai_gen_id }}__topline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+  }
+
+  .ai-vlume-offers-{{ ai_gen_id }}__support {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #45494d;
+  }
+
+  .ai-vlume-offers-{{ ai_gen_id }}__badge {
+    display: inline-block;
+    padding: 3px 8px;
+    color: #fff;
+    background: #212326;
+    border-radius: 20px;
+    font-size: 11px;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .ai-vlume-offers-{{ ai_gen_id }}__price {
+    flex-shrink: 0;
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .ai-vlume-offers-{{ ai_gen_id }}__submit {
+    width: 100%;
+    margin-top: 14px;
+    padding: 15px 20px;
+    color: #fff;
+    background: #212326;
+    border: 1px solid #212326;
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .ai-vlume-offers-{{ ai_gen_id }}__submit:hover { background: #000; }
+  .ai-vlume-offers-{{ ai_gen_id }}__submit:focus-visible,
+  .ai-vlume-offers-{{ ai_gen_id }}__option:focus-visible { outline: 3px solid #87adf5; outline-offset: 3px; }
+  .ai-vlume-offers-{{ ai_gen_id }}__submit:disabled { opacity: .65; cursor: wait; }
+  .ai-vlume-offers-{{ ai_gen_id }}__error { margin-top: 10px; color: #a52816; font-size: 14px; }
+
+  @media screen and (max-width: 600px) {
+    .ai-vlume-offers-{{ ai_gen_id }}__option { padding: 14px; gap: 10px; }
+    .ai-vlume-offers-{{ ai_gen_id }}__option[aria-pressed="true"] { padding: 13px; }
+    .ai-vlume-offers-{{ ai_gen_id }}__price { font-size: 16px; }
+  }
+{% endstyle %}
+
+<vlume-offer-selector-{{ ai_gen_id }} class="ai-vlume-offers-{{ ai_gen_id }}" data-variant-id="48167019741438" data-error="{{ block.settings.error_message | escape }}" {{ block.shopify_attributes }}>
+  <div class="ai-vlume-offers-{{ ai_gen_id }}__list" role="group" aria-label="Choose your offer">
+    <button type="button" class="ai-vlume-offers-{{ ai_gen_id }}__option" data-quantity="1" aria-pressed="false">
+      <span class="ai-vlume-offers-{{ ai_gen_id }}__radio" aria-hidden="true"></span>
+      <span class="ai-vlume-offers-{{ ai_gen_id }}__details">
+        <span class="ai-vlume-offers-{{ ai_gen_id }}__topline">{{ block.settings.offer_one_label | escape }}</span>
+        <span class="ai-vlume-offers-{{ ai_gen_id }}__support">{{ block.settings.offer_one_support | escape }}</span>
+      </span>
+      <span class="ai-vlume-offers-{{ ai_gen_id }}__price">${{ block.settings.offer_one_price | escape }}</span>
+    </button>
+    <button type="button" class="ai-vlume-offers-{{ ai_gen_id }}__option" data-quantity="2" aria-pressed="true">
+      <span class="ai-vlume-offers-{{ ai_gen_id }}__radio" aria-hidden="true"></span>
+      <span class="ai-vlume-offers-{{ ai_gen_id }}__details">
+        <span class="ai-vlume-offers-{{ ai_gen_id }}__topline">{{ block.settings.offer_two_label | escape }} <span class="ai-vlume-offers-{{ ai_gen_id }}__badge">{{ block.settings.offer_two_badge | escape }}</span></span>
+        <span class="ai-vlume-offers-{{ ai_gen_id }}__support">{{ block.settings.offer_two_support | escape }}</span>
+      </span>
+      <span class="ai-vlume-offers-{{ ai_gen_id }}__price">${{ block.settings.offer_two_price | escape }}</span>
+    </button>
+    <button type="button" class="ai-vlume-offers-{{ ai_gen_id }}__option" data-quantity="3" aria-pressed="false">
+      <span class="ai-vlume-offers-{{ ai_gen_id }}__radio" aria-hidden="true"></span>
+      <span class="ai-vlume-offers-{{ ai_gen_id }}__details">
+        <span class="ai-vlume-offers-{{ ai_gen_id }}__topline">{{ block.settings.offer_three_label | escape }} <span class="ai-vlume-offers-{{ ai_gen_id }}__badge">{{ block.settings.offer_three_badge | escape }}</span></span>
+        <span class="ai-vlume-offers-{{ ai_gen_id }}__support">{{ block.settings.offer_three_support | escape }}</span>
+      </span>
+      <span class="ai-vlume-offers-{{ ai_gen_id }}__price">${{ block.settings.offer_three_price | escape }}</span>
+    </button>
+  </div>
+  <button type="button" class="ai-vlume-offers-{{ ai_gen_id }}__submit">{{ block.settings.button_label | escape }}</button>
+  <p class="ai-vlume-offers-{{ ai_gen_id }}__error" role="alert" hidden></p>
+</vlume-offer-selector-{{ ai_gen_id }}>
+
+<script>
+  (() => {
+    const tagName = 'vlume-offer-selector-{{ ai_gen_id }}';
+    if (customElements.get(tagName)) return;
+    class VlumeOfferSelector extends HTMLElement {
+      connectedCallback() {
+        this.options = Array.from(this.querySelectorAll('[data-quantity]'));
+        this.submitButton = this.querySelector('.ai-vlume-offers-{{ ai_gen_id }}__submit');
+        this.error = this.querySelector('.ai-vlume-offers-{{ ai_gen_id }}__error');
+        this.options.forEach((option) => option.addEventListener('click', () => {
+          this.options.forEach((item) => item.setAttribute('aria-pressed', item === option ? 'true' : 'false'));
+        }));
+        this.submitButton.addEventListener('click', () => this.checkout());
+      }
+      async checkout() {
+        const chosen = this.options.find((option) => option.getAttribute('aria-pressed') === 'true');
+        if (!chosen) return;
+        this.submitButton.disabled = true;
+        this.error.hidden = true;
+        try {
+          const variantId = Number(this.dataset.variantId);
+          const cartResponse = await fetch(`${window.Shopify.routes.root}cart.js`, { headers: { Accept: 'application/json' } });
+          if (!cartResponse.ok) throw new Error();
+          const cart = await cartResponse.json();
+          const matching = cart.items.filter((item) => Number(item.variant_id) === variantId);
+          for (const item of matching) {
+            const removeResponse = await fetch(`${window.Shopify.routes.root}cart/change.js`, {
+              method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+              body: JSON.stringify({ id: item.key, quantity: 0 })
+            });
+            if (!removeResponse.ok) throw new Error();
+          }
+          const addResponse = await fetch(`${window.Shopify.routes.root}cart/add.js`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({ items: [{ id: variantId, quantity: Number(chosen.dataset.quantity) }] })
+          });
+          if (!addResponse.ok) throw new Error();
+          window.location.assign(`${window.Shopify.routes.root}checkout`);
+        } catch (error) {
+          this.error.textContent = this.dataset.error;
+          this.error.hidden = false;
+          this.submitButton.disabled = false;
+        }
+      }
+    }
+    customElements.define(tagName, VlumeOfferSelector);
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Vlume offer selector",
+  "settings": [
+    { "type": "range", "id": "desktop_width_percent", "label": "Desktop width", "min": 50, "max": 100, "step": 5, "unit": "%", "default": 100 },
+    { "type": "header", "content": "Offer one" },
+    { "type": "text", "id": "offer_one_label", "label": "Offer label", "default": "1 Bottle" },
+    { "type": "text", "id": "offer_one_price", "label": "Price", "default": "16" },
+    { "type": "text", "id": "offer_one_support", "label": "Supporting text", "default": "Shipping paid by customer · Quantity 1" },
+    { "type": "header", "content": "Offer two" },
+    { "type": "text", "id": "offer_two_label", "label": "Offer label", "default": "2 Bottles" },
+    { "type": "text", "id": "offer_two_price", "label": "Price", "default": "32" },
+    { "type": "text", "id": "offer_two_badge", "label": "Badge", "default": "Most Popular" },
+    { "type": "text", "id": "offer_two_support", "label": "Supporting text", "default": "Free shipping · Quantity 2" },
+    { "type": "header", "content": "Offer three" },
+    { "type": "text", "id": "offer_three_label", "label": "Offer label", "default": "3 Bottles" },
+    { "type": "text", "id": "offer_three_price", "label": "Price", "default": "44" },
+    { "type": "text", "id": "offer_three_badge", "label": "Badge", "default": "Best Value" },
+    { "type": "text", "id": "offer_three_support", "label": "Supporting text", "default": "Get your 3rd bottle for only $12 — stock up and save more." },
+    { "type": "header", "content": "Checkout" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Continue to checkout" },
+    { "type": "text", "id": "error_message", "label": "Error message", "default": "We couldn't update your cart. Please try again." }
+  ],
+  "presets": [{ "name": "Vlume offer selector" }],
+  "tag": null,
+  "class": "vlume-offer-selector-block"
+}
 {% endschema %}
