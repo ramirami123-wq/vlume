@@ -18,7 +18,7 @@
           "type": "announcement",
           "settings": {
             "text": "Free Shipping: 2 Bottles for $32 or 3 Bottles for $44",
-            "text_on_mobile": "",
+            "text_on_mobile": "Free Shipping: 2 Bottles for $32 or 3 Bottles for $44",
             "text_size": 14,
             "link": "shopify://products/hair-removal-spray-foam"
           }
@@ -37,7 +37,7 @@
         "direction": "left",
         "speed": 1.6,
         "colors_text": "#ffffff",
-        "colors_background": "#AD2467",
+        "colors_background": "#ad2467",
         "gradient_background": "",
         "padding_top": 0,
         "padding_bottom": 0
