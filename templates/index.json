@@ -507,6 +507,58 @@
     "178855584111daa94a": {
       "type": "_blocks",
       "settings": {}
+    },
+    "179035805295fbbf08": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_016cda1_DGYrKP": {
+          "type": "ai_gen_block_016cda1",
+          "settings": {
+            "desktop_width_percent": 100,
+            "offer_one_label": "1 Bottle",
+            "offer_one_price": "16",
+            "offer_one_support": "Shipping paid by customer · Quantity 1",
+            "offer_two_label": "2 Bottles",
+            "offer_two_price": "32",
+            "offer_two_badge": "Most Popular",
+            "offer_two_support": "Free shipping · Quantity 2",
+            "offer_three_label": "3 Bottles",
+            "offer_three_price": "44",
+            "offer_three_badge": "Best Value",
+            "offer_three_support": "Get your 3rd bottle for only $12 — stock up and save more.",
+            "button_label": "Continue to checkout",
+            "error_message": "We couldn't update your cart. Please try again."
+          },
+          "blocks": {}
+        },
+        "ai_gen_block_a474d64_AQfKbX": {
+          "type": "ai_gen_block_a474d64",
+          "settings": {
+            "offer_one_label": "1 Bottle",
+            "offer_one_price": "16",
+            "offer_two_label": "2 Bottles",
+            "offer_two_price": "32",
+            "offer_three_label": "3 Bottles",
+            "offer_three_price": "44",
+            "error_message": "We couldn't prepare your offer. Please try again.",
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_016cda1_DGYrKP",
+        "ai_gen_block_a474d64_AQfKbX"
+      ],
+      "settings": {}
+    },
+    "179035821166bd840f": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1790359216f5739422": {
+      "type": "_blocks",
+      "settings": {}
     }
   },
   "order": [
@@ -524,6 +576,9 @@
     "1788101353c73fc74b",
     "178855339014ba19ba",
     "178855552148ba5bcd",
-    "178855584111daa94a"
+    "178855584111daa94a",
+    "179035805295fbbf08",
+    "179035821166bd840f",
+    "1790359216f5739422"
   ]
 }
